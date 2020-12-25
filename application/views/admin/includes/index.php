@@ -10,7 +10,6 @@
             <?php $this->load->view('admin/includes/footer')?>
         </div>
         <!--Dashboard content Wrapper ends-->
-
     </div>
     <?php $this->load->view('admin/includes/foot')?>
 </body>
