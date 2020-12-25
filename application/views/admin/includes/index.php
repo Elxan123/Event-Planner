@@ -7,7 +7,7 @@
         <div class="dash-content-wrap">
             <?php $this->load->view("admin/includes/header")?>
             <?php $this->load->view("admin/".$page_info['name'])?>
-            <?php $this->load->view('admin/includes/foot')?>
+            <?php $this->load->view('admin/includes/footer')?>
         </div>
         <!--Dashboard content Wrapper ends-->
 
