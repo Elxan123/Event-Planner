@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2020 at 09:50 PM
+-- Generation Time: Dec 25, 2020 at 11:51 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.1.30
 
@@ -53,8 +53,19 @@ CREATE TABLE `checklist` (
 
 CREATE TABLE `city` (
   `id` int(11) NOT NULL,
-  `name` int(11) NOT NULL
+  `name_az` varchar(50) NOT NULL,
+  `name_en` varchar(255) NOT NULL,
+  `name_ru` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`id`, `name_az`, `name_en`, `name_ru`) VALUES
+(3, 'Baki', 'Baku', 'Baku'),
+(4, 'Sumqayit', 'Sumgayit', 'Sumgayit'),
+(5, 'Gence', 'Ganja', 'Ganja');
 
 -- --------------------------------------------------------
 
@@ -146,6 +157,14 @@ CREATE TABLE `event_ctg` (
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `event_ctg`
+--
+
+INSERT INTO `event_ctg` (`id`, `type_id`, `name_az`, `name_en`, `name_ru`, `img`) VALUES
+(1, 1, 'Ad gunuuu', 'Birthday', 'Birthday', 'friends.jpg'),
+(3, 2, 'meeting', 'meeting', 'meeting', 'orta.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -222,6 +241,13 @@ CREATE TABLE `services` (
   `desc_en` text NOT NULL,
   `desc_ru` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `name_az`, `name_en`, `name_ru`, `desc_az`, `desc_en`, `desc_ru`) VALUES
+(1, 'Tort', 'Paste', 'Paste', 'Tort', 'Paste dsad', 'Paste daddd');
 
 -- --------------------------------------------------------
 
@@ -413,7 +439,7 @@ ALTER TABLE `checklist`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `ctg_estab`
@@ -437,7 +463,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `event_ctg`
 --
 ALTER TABLE `event_ctg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `event_type`
@@ -461,7 +487,7 @@ ALTER TABLE `gallery_provider`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `service_event`

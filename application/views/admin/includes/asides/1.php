@@ -1,8 +1,21 @@
 <!--   Admin's Panel-->
     <li>
-        <a class="active" href="<?php echo base_url('dashboard')?>">
+        <a href="<?php echo base_url('dashboard')?>">
             <i class="ion-ios-gear-outline"></i>Dashboard
         </a>
+    </li>
+    <li class="has-sub">
+        <a class="js-arrow" href="#">
+            <i class="ion-ios-home"></i>Cities
+        </a>
+        <ul class="list-unstyled navbar__sub-list js-sub-list">
+            <li>
+                <a href="<?php echo base_url('cities')?>">Show Cities</a>
+            </li>
+            <li>
+                <a href="<?php echo base_url('city_add')?>">Add</a>
+            </li>
+        </ul>
     </li>
     <li class="has-sub">
         <a class="js-arrow" href="#">
@@ -14,6 +27,19 @@
             </li>
             <li>
                 <a href="<?php echo base_url('category_add')?>">Add</a>
+            </li>
+        </ul>
+    </li>
+    <li class="has-sub">
+        <a class="js-arrow" href="#">
+            <i class="ion-ios-toggle"></i>Services
+        </a>
+        <ul class="list-unstyled navbar__sub-list js-sub-list">
+            <li>
+                <a href="<?php echo base_url('services')?>">Show Services</a>
+            </li>
+            <li>
+                <a href="<?php echo base_url('service_add')?>">Add</a>
             </li>
         </ul>
     </li>

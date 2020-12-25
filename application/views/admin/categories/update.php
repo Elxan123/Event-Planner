@@ -15,24 +15,24 @@
                                 <p><?php echo $_SESSION['err'] ?></p>
                             </div>
                         <?php } ?>
-                        <form action="<?php echo base_url('category_add_act')?>" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo base_url('category_update_act/'.$ctg['id'])?>" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Category Name (az)</label>
-                                        <input type="text" class="form-control filter-input" placeholder="name (az)" name="name_az">
+                                        <input value="<?php echo $ctg['name_az'] ?>" type="text" class="form-control filter-input" placeholder="name (az)" name="name_az">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Category Name (en)</label>
-                                        <input type="text" class="form-control filter-input" placeholder="name (en)" name="name_en">
+                                        <input value="<?php echo $ctg['name_en'] ?>" type="text" class="form-control filter-input" placeholder="name (en)" name="name_en">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Category Name (ru)</label>
-                                        <input type="text" class="form-control filter-input" placeholder="name (ru)" name="name_ru">
+                                        <input value="<?php echo $ctg['name_ru'] ?>" type="text" class="form-control filter-input" placeholder="name (ru)" name="name_ru">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -40,7 +40,7 @@
                                         <label>Select Type</label>
                                         <select class="nice-select filter-input" name="type">
                                                 <?php foreach ($types as $type){ ?>
-                                                    <option value="<?php echo $type['id'] ?>"><?php echo $type['type'] ?></option>
+                                                    <option <?php if ($type['id'] == $ctg['type_id']){ echo 'selected'; } ?> value="<?php echo $type['id'] ?>"><?php echo $type['type'] ?></option>
                                                 <?php } ?>
                                         </select>
                                     </div>
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn v7 mar-top-20">Add Category</button>
+                                    <button type="submit" class="btn v7 mar-top-20">Update Category</button>
                                 </div>
                                 <script>
                                     function input_click() {

@@ -11,7 +11,7 @@
                             </ul>
                         </div>
                     </div>
-                    <a class="btn v3" href="add-listing.html"><i class="ion-plus-round"></i>Add Listing </a>
+<!--                    <a class="btn v3" href="add-listing.html"><i class="ion-plus-round"></i>Add Listing </a>-->
                 </div>
             </div>
         </div>
