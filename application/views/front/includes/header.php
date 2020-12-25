@@ -129,7 +129,7 @@
                                                 <li><a href="invoice.html">invoice</a></li>
                                             </ul>
                                         </li>
-                                        <li class="d-lg-none"><a class="btn v1" href="add-listing.html">Add Listing <i class="ion-plus-round"></i></a></li>
+                                        <li class="d-lg-none"><a class="btn v1" href="<?php echo base_url("become-partner")?>">Become partner <i class="ion-plus-round"></i></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -310,7 +310,7 @@
                                 </a>
                             </div>
                             <div class="add-list float-right">
-                                <a class="btn v8" href="add-listing.html">Add Listing <i class="ion-plus-round"></i></a>
+                                <a class="btn v8" href="<?php echo base_url("become-partner")?>">Become Partner</a>
                             </div>
                         </div>
                     </div>
