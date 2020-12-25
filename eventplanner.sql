@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2020 at 05:43 PM
+-- Generation Time: Dec 25, 2020 at 05:49 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.1.30
 
@@ -116,7 +116,9 @@ CREATE TABLE `events` (
   `provider_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `estab_id` int(11) NOT NULL
+  `estab_id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -183,7 +185,8 @@ CREATE TABLE `providers` (
   `about_en` text NOT NULL,
   `about_ru` text NOT NULL,
   `instagram` varchar(255) NOT NULL,
-  `facebook` varchar(255) NOT NULL
+  `facebook` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
