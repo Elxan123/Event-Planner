@@ -29,7 +29,7 @@
                     <h2 class="counter-value">18</h2>
                     <span class="desc">Published Listings</span>
                     <div class="icon">
-                        <img src="images/dashboard/map-of-roads.png" alt="...">
+                        <img src="<?php echo base_url("assets")?>/images/dashboard/map-of-roads.png" alt="...">
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     <h2 class="counter-value">115</h2>
                     <span class="desc">Total Reviews</span>
                     <div class="icon">
-                        <img src="images/dashboard/review.png" alt="...">
+                        <img src="<?php echo base_url("assets")?>/images/dashboard/review.png" alt="...">
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                     <h2 class="counter-value">800</h2>
                     <span class="desc">Total Views</span>
                     <div class="icon">
-                        <img src="images/dashboard/bar-chart.png" alt="...">
+                        <img src="<?php echo base_url("assets")?>/images/dashboard/bar-chart.png" alt="...">
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <h2 class="counter-value">15</h2>
                     <span class="desc">times Bookmarked</span>
                     <div class="icon">
-                        <img src="images/dashboard/like.png" alt="...">
+                        <img src="<?php echo base_url("assets")?>/images/dashboard/like.png" alt="...">
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                     <div class="viewd-item-wrap">
                         <div class="most-viewed-item">
                             <div class="most-viewed-img">
-                                <a href="#"><img src="images/single-listing/gallery-6.jpg" alt="..."></a>
+                                <a href="#"><img src="<?php echo base_url("assets")?>/images/single-listing/gallery-6.jpg" alt="..."></a>
                             </div>
                             <div class="most-viewed-detail">
                                 <a class="category" href="#"><span class="list-bg aqua"><i class="icofont-hotel"></i></span>Hotel</a>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="most-viewed-item">
                             <div class="most-viewed-img">
-                                <a href="#"><img src="images/single-listing/restaurant-6.jpg" alt="..."></a>
+                                <a href="#"><img src="<?php echo base_url("assets")?>/images/single-listing/restaurant-6.jpg" alt="..."></a>
                             </div>
                             <div class="most-viewed-detail">
                                 <a class="category" href="#">
@@ -115,7 +115,7 @@
                         </div>
                         <div class="most-viewed-item">
                             <div class="most-viewed-img">
-                                <a href="#"><img src="images/single-listing/single-list-2.jpg" alt="..."></a>
+                                <a href="#"><img src="<?php echo base_url("assets")?>/images/single-listing/single-list-2.jpg" alt="..."></a>
                             </div>
                             <div class="most-viewed-detail">
                                 <a class="category" href="#"><span class="list-bg aqua"><i class="icofont-music-alt"></i></span>Music</a>
