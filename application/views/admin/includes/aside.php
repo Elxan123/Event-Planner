@@ -1,12 +1,12 @@
 <aside class="menu-sidebar js-right-sidebar d-block d-lg-none">
     <div class="logo">
         <a href="#">
-            <img src="images/logo-black.png" alt="Listagram" />
+            <img src="<?php echo base_url("assets")?>/images/logo-black.png" alt="Listagram" />
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar2">
         <div class="account-img">
-            <img src="images/clients/reviewer-4.png" alt="Steve Austin" />
+            <img src="<?php echo base_url("assets")?>/images/clients/reviewer-4.png" alt="Steve Austin" />
         </div>
         <h4 class="name">Howdy, Steve!</h4>
         <nav class="navbar-sidebar2">

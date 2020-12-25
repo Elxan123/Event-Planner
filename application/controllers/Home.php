@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller{
+class Home extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
@@ -9,7 +9,7 @@ class Dashboard extends CI_Controller{
 
     public function index()
     {
-        $data['page_info'] = ['name' => 'dashboard'];
-        $this->load->view('admin/includes/index',$data);
+        $data['page_info'] = ['name' => 'home'];
+        $this->load->view('front/includes/index',$data);
     }
 }

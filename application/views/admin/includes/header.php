@@ -176,7 +176,7 @@
                         </div>
                     </div>
                     <div class="header-button-item js-sidebar-btn">
-                        <img src="images/clients/reviewer-4.png" alt="...">
+                        <img src="<?php echo base_url("assets")?>/images/clients/reviewer-4.png" alt="...">
                         <span>Steve <i class="ion-arrow-down-b"></i></span>
                     </div>
                     <div class="setting-menu js-right-sidebar d-none d-lg-block">
