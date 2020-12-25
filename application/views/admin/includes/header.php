@@ -146,70 +146,9 @@
             </div>
             <div class="col-md-3 col-sm-6 col-8">
                 <div class="header-button">
-                    <div class="header-button-item has-noti js-item-menu">
-                        <i class="ion-ios-bell-outline"></i>
-                        <div class="notifi-dropdown js-dropdown">
-                            <div class="notifi__title">
-                                <p>You have 2 Notifications</p>
-                            </div>
-                            <div class="notifi__item">
-                                <div class="bg-c1 red">
-                                    <i class="icofont-check"></i>
-                                </div>
-                                <div class="content">
-                                    <p>Your listing <b>Hotel Ocean Paradise</b> has been approved!</p>
-                                    <span class="date">5min ago</span>
-                                </div>
-                            </div>
-                            <div class="notifi__item">
-                                <div class="bg-c1 green">
-                                    <i class="icofont-ui-message"></i>
-                                </div>
-                                <div class="content">
-                                    <p>You have 3 unread Messages</p>
-                                    <span class="date">5min ago</span>
-                                </div>
-                            </div>
-                            <div class="notify-bottom text-center pad-tb-20">
-                                <a href="#">View All Notification</a>
-                            </div>
-                        </div>
-                    </div>
                     <div class="header-button-item js-sidebar-btn">
                         <img src="<?php echo base_url("assets")?>/images/clients/reviewer-4.png" alt="...">
-                        <span>Steve <i class="ion-arrow-down-b"></i></span>
-                    </div>
-                    <div class="setting-menu js-right-sidebar d-none d-lg-block">
-                        <div class="account-dropdown__body">
-                            <div class="account-dropdown__item">
-                                <a href="db.html">
-                                    <i class="ion-ios-gear-outline"></i>Dashboard</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="db-my-listing.html">
-                                    <i class="ion-social-buffer-outline"></i>Listings</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="db-bookings.html">
-                                    <i class="ion-ios-copy-outline"></i>Bookings</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="db-recieve-reviews.html">
-                                    <i class="ion-ios-star-outline"></i>Reviews</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="db-messages.html">
-                                    <i class="ion-ios-email-outline"></i>Inbox</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="db-my-profile.html">
-                                    <i class="ion-ios-person-outline"></i>Profile</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="ion-ios-upload-outline"></i>Logout</a>
-                            </div>
-                        </div>
+                        <span>Steve</span>
                     </div>
                 </div>
             </div>

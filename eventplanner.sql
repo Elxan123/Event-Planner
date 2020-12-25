@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2020 at 06:54 PM
+-- Generation Time: Dec 25, 2020 at 09:50 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.1.30
 
@@ -154,8 +154,16 @@ CREATE TABLE `event_ctg` (
 
 CREATE TABLE `event_type` (
   `id` int(11) NOT NULL,
-  `type` int(11) NOT NULL
+  `type` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `event_type`
+--
+
+INSERT INTO `event_type` (`id`, `type`) VALUES
+(1, 'personal'),
+(2, 'corporate');
 
 -- --------------------------------------------------------
 
@@ -253,8 +261,19 @@ CREATE TABLE `users` (
   `surname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `mobile` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `birthday` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_type_id`, `name`, `surname`, `email`, `mobile`, `password`, `birthday`) VALUES
+(1, 1, 'admin', 'admin', 'admin@admin.com', '0550000000', 'admin', '2020-12-02'),
+(2, 2, 'Provider', 'Provider', 'Provider@provider.com', '0500000000', 'provider', '2020-12-01'),
+(3, 3, 'Estab', 'Estab', 'Estab@estab.com', '0700000000', 'estab', '2020-12-01'),
+(4, 4, 'User', 'User', 'user@user.com', '0990000000', 'user', '2020-12-01');
 
 --
 -- Indexes for dumped tables
@@ -424,7 +443,7 @@ ALTER TABLE `event_ctg`
 -- AUTO_INCREMENT for table `event_type`
 --
 ALTER TABLE `event_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `gallery_estab`
@@ -460,7 +479,7 @@ ALTER TABLE `service_provider`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
