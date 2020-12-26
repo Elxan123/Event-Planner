@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 26 Ara 2020, 18:13:18
+-- Üretim Zamanı: 26 Ara 2020, 21:01:45
 -- Sunucu sürümü: 10.4.11-MariaDB
 -- PHP Sürümü: 7.4.3
 
@@ -79,6 +79,14 @@ CREATE TABLE `ctg_estab` (
   `event_ctg_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Tablo döküm verisi `ctg_estab`
+--
+
+INSERT INTO `ctg_estab` (`id`, `estab_id`, `event_ctg_id`) VALUES
+(1, 3, 1),
+(2, 3, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -145,11 +153,10 @@ CREATE TABLE `estab` (
 --
 
 INSERT INTO `estab` (`user_id`, `city_id`, `name`, `about_az`, `about_ru`, `about_en`, `img`, `instagram`, `facebook`, `lat`, `lon`, `address_az`, `address_ru`, `address_en`, `status`) VALUES
-(3, 3, 'Establishment Name', 'About : Azerbaijan (Optional)', 'About : Russian (Optional)', 'About : English (Optional)', 'ad.jpg', 'Instagram Link (Optional)', 'Facebook (Optional)', 0, 0, 'Adress In Azerbaijan (Optional)', 'Adress In English (Optional)', 'Adress In English (Optional)', 2),
-(5, 4, 'asdasd', 'ads', 'asdas', 'asdd', 'image-2020-12-21-16-35-52.png', 'asdas', 'asd', 40, 50, 'Adress In Azerbaijan (Optional)', 'Adress In Russian (Optional)', 'Adress In English (Optional)', 2),
+(3, 3, 'Establishment Name', 'About : Azerbaijan (Optional)', 'About : Russian (Optional)', 'About : English (Optional)', '804a1250.jpg', 'Instagram Link (Optional)', 'Facebook (Optional)', 40.403058738875764, 49.87847791559144, 'Adress In Azerbaijan (Optional)', 'Adress In English (Optional)', 'Adress In English (Optional)', 1),
+(5, 4, 'asdasd', 'ads', 'asdas', 'asdd', 'image-2020-12-21-16-35-52.png', 'asdas', 'asd', 40, 50, 'Adress In Azerbaijan (Optional)', 'Adress In Russian (Optional)', 'Adress In English (Optional)', 1),
 (6, 3, 'asdasdas', 'ads', '', '', 'capture.PNG', 'ada', 'ad', 0, 0, 'adasd', 'sda', 'asda', 1),
-(7, 4, 'asdas', 'ads', '', '', 'image-2020-12-21-16-39-29.png', 'ada', 'ad', 40.403058738875764, 49.87847791559144, 'adasd', 'sda', 'asda', 0),
-(8, 4, 'test Name', 'About : Azerbaijan (Optional)', 'About : Russian (Optional)', 'About : English (Optional)', 'image-2020-12-21-16-35-52.png', 'Instagram Link (Optional)', 'Facebook (Optional)', 40.401441049850064, 49.878617390460214, 'asdasd', 'asdsad', 'asdsad', 2);
+(7, 4, 'asdas', 'ads', '', '', 'image-2020-12-21-16-39-29.png', 'ada', 'ad', 40.403058738875764, 49.87847791559144, 'adasd', 'sda', 'asda', 0);
 
 -- --------------------------------------------------------
 
@@ -177,7 +184,8 @@ INSERT INTO `events` (`id`, `customer_id`, `provider_id`, `title`, `description`
 (7, 10, 2, 'adasd', 'asdasdasd', 0, '2020-12-09', '2020-12-22', 0),
 (8, 10, 2, 'adasd', 'asdasdasd', 0, '2020-12-09', '2020-12-22', 0),
 (9, 10, 2, 'adasdad1231231', 'asdasdasd', 0, '2020-12-09', '2020-12-22', 0),
-(10, 10, 2, '1221321', '123213', 0, '2020-12-16', '2020-12-15', 0);
+(10, 10, 2, '1221321', '123213', 0, '2020-12-16', '2020-12-15', 0),
+(15, 10, 0, 'adad', 'adadsda', 3, '2020-12-09', '2020-12-07', 0);
 
 -- --------------------------------------------------------
 
@@ -232,6 +240,17 @@ CREATE TABLE `gallery_estab` (
   `estab_id` int(11) NOT NULL,
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `gallery_estab`
+--
+
+INSERT INTO `gallery_estab` (`id`, `estab_id`, `img`) VALUES
+(1, 3, '4.png'),
+(2, 3, '5d5bda405449c--1-.jpg'),
+(3, 3, '5d5bda405449c1.jpg'),
+(4, 3, '5de91909eafa8.jpg'),
+(5, 3, '72.png');
 
 -- --------------------------------------------------------
 
@@ -535,7 +554,7 @@ ALTER TABLE `city`
 -- Tablo için AUTO_INCREMENT değeri `ctg_estab`
 --
 ALTER TABLE `ctg_estab`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `ctg_provider`
@@ -547,7 +566,7 @@ ALTER TABLE `ctg_provider`
 -- Tablo için AUTO_INCREMENT değeri `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `event_ctg`
@@ -565,7 +584,7 @@ ALTER TABLE `event_type`
 -- Tablo için AUTO_INCREMENT değeri `gallery_estab`
 --
 ALTER TABLE `gallery_estab`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `gallery_provider`
@@ -644,8 +663,7 @@ ALTER TABLE `estab`
 -- Tablo kısıtlamaları `events`
 --
 ALTER TABLE `events`
-  ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `events_ibfk_2` FOREIGN KEY (`provider_id`) REFERENCES `providers` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Tablo kısıtlamaları `event_ctg`

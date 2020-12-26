@@ -45,6 +45,11 @@ $route['provider-single/(:any)'] = "ProviderSingle/index/$1";
 $route['provider-single-register/(:any)'] = "ProviderSingle/register/$1";
 $route['provider-single-register-action/(:any)'] = "ProviderSingle/register_action/$1";
 
+
+$route['establishment-single/(:any)'] = "Establishmentsingle/index/$1";
+$route['establishment-single-register/(:any)'] = "Establishmentsingle/register/$1";
+$route['establishment-single-register-action/(:any)'] = "Establishmentsingle/register_action/$1";
+
 $route['register-success'] = "ProviderSingle/success";
 
 
