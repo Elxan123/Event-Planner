@@ -21,8 +21,6 @@ $route['establishment/calendar'] = "admin/establishment/Generalinformation/calen
 
 
 
-
-
 $route['providers/general-info'] = "admin/provider/GeneralinformationProvider/general_information";
 $route['providers/general-info-update'] = "admin/provider/GeneralinformationProvider/general_information_update";
 
@@ -35,3 +33,10 @@ $route['providers/gallery'] = "admin/provider/GeneralinformationProvider/gallery
 $route['providers/gallery-add'] = "admin/provider/GeneralinformationProvider/gallery_add";
 $route['providers/gallery-delete/(:any)'] = "admin/provider/GeneralinformationProvider/gallery_delete/$1";
 $route['providers/gallery-refresh'] = "admin/provider/GeneralinformationProvider/gallery_refresh_page";
+
+
+
+$route['event-organize'] = "EventOrganize/index";
+$route['event-organize-services'] = "EventOrganize/services";
+$route['event-organize-establishments'] = "EventOrganize/establishments";
+

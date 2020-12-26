@@ -23,9 +23,11 @@
 
                                     <?php foreach ($service_providers as $item){ ?>
                                         <tr>
+
                                             <td>
                                                 <?php echo $item["service_name_en"]?>
                                             </td>
+
                                             <td>
                                                 <?php echo $item["service_desc_en"]?>
 
@@ -40,6 +42,7 @@
                                             <td>
                                                 <a href="<?php echo base_url("providers/delete-service/$item[sp_id]")?>" class="invoice-action" data-toggle="tooltip" title="Delete"> <i class="ion-android-delete"></i></a>
                                             </td>
+
                                         </tr>
                                     <?php }?>
 
