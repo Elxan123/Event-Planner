@@ -1,14 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Generalinformation extends CI_Controller{
+class GeneralinformationProvider extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
         if (!isset($_SESSION['user_id']) or !isset($_SESSION['user_type'])){
             show_404();
         }
-
     }
 
     
@@ -23,10 +22,10 @@ class Generalinformation extends CI_Controller{
         $data["city"] = $this->db->get("city")->result_array();
 
         $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
-        $data["estab_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("estab")->row_array();
+        $data["provider_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("providers")->row_array();
 
 
-        $data['page_info'] = ['name' => 'establishment/general_information/update'];
+        $data['page_info'] = ['name' => 'provider/general_information/update'];
         $this->load->view('admin/includes/index',$data);
     }
 
@@ -35,33 +34,23 @@ class Generalinformation extends CI_Controller{
 
         $name = $this->input->post("name");
         $surname = $this->input->post("surname");
+        $email = $this->input->post("email");
+        $mobile = $this->input->post("mobile");
         $password = $this->input->post("password");
+        $birthday = $this->input->post("birthday");
+        $city = $this->input->post("city_id");
         $img = $this->input->post("img");
         $about_az = $this->input->post("about_az");
         $about_en = $this->input->post("about_en");
         $about_ru = $this->input->post("about_ru");
-        $city = $this->input->post("city_id");
-        $mobile = $this->input->post("mobile");
-        $birthday = $this->input->post("birthday");
-        $email = $this->input->post("email");
-        $facebook = $this->input->post("facebook");
         $instagram  = $this->input->post("instagram");
-
-        $estab_name  = $this->input->post("estab_name");
-
-        $address_az  = $this->input->post("address_az");
-        $address_en  = $this->input->post("address_en");
-        $address_ru  = $this->input->post("address_ru");
-
-        $lat  = $this->input->post("lat");
-        $lon  = $this->input->post("lon");
+        $facebook = $this->input->post("facebook");
 
 
-        if (!empty($name) && !empty($surname) && !empty($password) && !empty($mobile) && !empty($city) && !empty($birthday) && !empty($estab_name)){
-
+        if (!empty($name) && !empty($surname) && !empty($password) && !empty($mobile) && !empty($city) && !empty($birthday) ){
 
             $file_name_seo = convertToSEO(pathinfo($_FILES["img"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
-            $config_upload['upload_path'] = "uploads/establishments";
+            $config_upload['upload_path'] = "uploads/providers";
             $config_upload['allowed_types'] = 'jpg|jpeg|png';
             $config_upload['file_name'] = $file_name_seo;
             $this->load->library('upload',$config_upload);
@@ -86,7 +75,7 @@ class Generalinformation extends CI_Controller{
                     "id" => $this->session->userdata("user_id")
                 )
             )->update("users", array(
-                "user_type_id" => 3,
+                "user_type_id" => 2,
                 "password" => $password,
                 "name" => $name,
                 "surname" => $surname,
@@ -99,7 +88,7 @@ class Generalinformation extends CI_Controller{
                 array(
                     "user_id" => $this->session->userdata("user_id")
                 )
-            )->update("estab", array(
+            )->update("providers", array(
                 "user_id" => $this->session->userdata("user_id"),
                 "city_id" => $city,
                 "img" => $img,
@@ -109,18 +98,10 @@ class Generalinformation extends CI_Controller{
                 "instagram" => $instagram,
                 "facebook" => $facebook,
 
-                "name" => $estab_name,
-
-                "address_az" => $address_az,
-                "address_en" => $address_en,
-                "address_ru" => $address_ru,
-
-                "lat" => $lat,
-                "lon" => $lon,
             ));
 
             $this->session->unset_userdata("form_data");
-            redirect(base_url("establishment/general-info"));
+            redirect(base_url("providers/general-info"));
 
         }else{
 
@@ -138,29 +119,23 @@ class Generalinformation extends CI_Controller{
                 "about_ru" => $about_ru,
                 "instagram" => $instagram,
                 "facebook" => $facebook,
-                "status" => $birthday,
-                "estab_name" => $estab_name,
 
-                "address_az" => $address_az,
-                "address_en" => $address_en,
-                "address_ru" => $address_ru,
-                "lat" => $lat,
-                "lon" => $lon,
             ));
             $this->session->set_flashdata("register_alert", "Dont empty the important fields");
-            redirect(base_url("establishment/general-info"));
+            redirect(base_url("providers/general-info"));
         }
 
     }
 
+
     public function gallery()
     {
+
         $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
-        $data["estab_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("estab")->row_array();
-        $data["gallery"] = $this->db->where("estab_id", $this->session->userdata("user_id"))->get("gallery_estab")->result_array();
+        $data["provider_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("providers")->row_array();
+        $data["gallery"] = $this->db->where("provider_id", $this->session->userdata("user_id"))->get("gallery_provider")->result_array();
 
-
-        $data['page_info'] = ['name' => 'establishment/gallery/content'];
+        $data['page_info'] = ['name' => 'provider/gallery/content'];
         $this->load->view('admin/includes/index',$data);
     }
 
@@ -170,14 +145,14 @@ class Generalinformation extends CI_Controller{
 
         $img_limit = 9;
 
-        $gallery_count = $this->db->where(['estab_id'=>$id])->from("gallery_estab")->count_all_results();
+        $gallery_count = $this->db->where(['provider_id'=>$id])->from("gallery_provider")->count_all_results();
 
         if ($gallery_count < $img_limit){
 
             $file_name = convertToSEO(pathinfo($_FILES["file"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
 
 
-            $config_upload['upload_path'] = "uploads/establishments/";
+            $config_upload['upload_path'] = "uploads/providers/";
             $config_upload['allowed_types'] = 'jpg|png|jpeg';
             $config_upload["file_name"] = $file_name;
 
@@ -198,11 +173,11 @@ class Generalinformation extends CI_Controller{
             }
 
             $data = array(
-                "estab_id" => $id,
+                "provider_id" => $id,
                 "img" => $name,
             );
 
-            $this->db->insert("gallery_estab", $data);
+            $this->db->insert("gallery_provider", $data);
 
             
         }else{
@@ -214,32 +189,92 @@ class Generalinformation extends CI_Controller{
     public function gallery_delete($id)
     {
 
-        $row = $this->db->where("id", $id)->get("gallery_estab")->row_array();
+        $row = $this->db->where("id", $id)->get("gallery_provider")->row_array();
 
-        if ($row["img"] !== "default.png" && file_exists("uploads/establishments/$row[img]")) {
-            unlink("uploads/establishments/$row[img]");
+        if ($row["img"] !== "default.png" && file_exists("uploads/provider/$row[img]")) {
+            unlink("uploads/provider/$row[img]");
         }
 
-        $this->db->where("id", $id)->delete("gallery_estab");
+        $this->db->where("id", $id)->delete("gallery_provider");
 
-        redirect(base_url("establishment/gallery"));
+        redirect(base_url("providers/gallery"));
 
     }
     
     public function gallery_refresh_page()
     {
-        $data["gallery"] = $this->db->where("estab_id", $this->session->userdata("user_id"))->get("gallery_estab")->result_array();
-        $this->load->view('admin/establishment/gallery/refresh_page',$data);
+        $data["gallery"] = $this->db->where("provider_id", $this->session->userdata("user_id"))->get("gallery_provider")->result_array();
+        $this->load->view('admin/provider/gallery/refresh_page',$data);
         
     }
 
-    public function calendar()
+    public function services()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["provider_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("providers")->row_array();
+
+        $data["service_providers"] = $this->db->select("service_provider.id as sp_id, service_provider.price, services.name_en as service_name_en, services.desc_en as service_desc_en")
+            ->from("service_provider")
+            ->join("providers", "providers.user_id = service_provider.provider_id")
+            ->join("services", "services.id = service_provider.service_id")
+            ->get()->result_array();
 
 
-        $data['page_info'] = ['name' => 'establishment/calendar/content'];
+
+        $data['page_info'] = ['name' => 'provider/services/content'];
         $this->load->view('admin/includes/index',$data);
     }
-    
+
+    public function services_add()
+    {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["provider_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("providers")->row_array();
+
+        $data["services"] = $this->db->get("services")->result_array();
+
+
+        $data['page_info'] = ['name' => 'provider/services/add'];
+        $this->load->view('admin/includes/index',$data);
+    }
+
+    public function services_add_action()
+    {
+        $id = $this->session->userdata("user_id");
+        $service_id = $this->input->post("service_id");
+        $price = $this->input->post("price");
+
+        if (!empty($service_id) && !empty($price)){
+
+
+            if(empty($this->db->where(array("service_id" => $service_id, "provider_id" => $id))->get("service_provider")->result_array())){
+
+                $this->db->insert("service_provider", array(
+                    "service_id" => $service_id,
+                    "provider_id" => $id,
+                    "price" => $price
+                ));
+                redirect(base_url("providers/choose-service"));
+
+            }else{
+                $this->session->set_flashdata("register_alert", "You cannot add the same service twice");
+                redirect(base_url("providers/add-service"));
+            }
+
+
+
+        }else{
+            $this->session->set_flashdata("register_alert", "Dont empty the important fields");
+            redirect(base_url("providers/add-service"));
+        }
+
+    }
+
+    public function services_delete($service_id)
+    {
+        $this->db->where("id", $service_id)->delete("service_provider");
+        redirect(base_url("providers/choose-service"));
+    }
+
+
 
 }

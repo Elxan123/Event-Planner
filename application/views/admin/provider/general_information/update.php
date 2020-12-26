@@ -27,7 +27,7 @@
                                 </li>
                             </ul>
 
-                            <form action="<?php echo base_url("establishment/general-info-update")?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo base_url("providers/general-info-update")?>" method="post" enctype="multipart/form-data">
                                 <div class="tab-content mar-tb-30 add_list_content">
 
 
@@ -47,26 +47,19 @@
 
                                         <?php
 
-                                        $name = $profile["name"];
-                                        $surname = $profile["surname"];
-                                        $password = $profile["password"];
-                                        $img = $estab_profile["img"];
-                                        $about_az = $estab_profile["about_az"];
-                                        $about_en = $estab_profile["about_en"];
-                                        $about_ru = $estab_profile["about_ru"];
-                                        $mobile = $profile["mobile"];
-                                        $birthday = $profile["birthday"];
-                                        $email = $profile["email"];
-                                        $facebook = $estab_profile["facebook"];
-                                        $instagram  = $estab_profile["instagram"];
+                                            $name = $profile["name"];
+                                            $surname = $profile["surname"];
+                                            $email = $profile["email"];
+                                            $mobile = $profile["mobile"];
+                                            $password = $profile["password"];
+                                            $birthday = $profile["birthday"];
 
-                                        $estab_name  = $estab_profile["name"];
-                                        $address_az  = $estab_profile["address_az"];
-                                        $address_en  = $estab_profile["address_en"];
-                                        $address_ru  = $estab_profile["address_ru"];
-                                        $lat  = $estab_profile["lat"];
-                                        $lon  = $estab_profile["lon"];
-
+                                            $img = $provider_profile["img"];
+                                            $about_az = $provider_profile["about_az"];
+                                            $about_en = $provider_profile["about_en"];
+                                            $about_ru = $provider_profile["about_ru"];
+                                            $instagram  = $provider_profile["instagram"];
+                                            $facebook = $provider_profile["facebook"];
 
                                         ?>
 
@@ -96,22 +89,15 @@
 
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label>Establishment Name</label>
-                                                    <input type="text" class="form-control filter-input" placeholder="Your Establishment Name" name="estab_name" value="<?php echo $estab_name?>">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Establishment Primary Picture (Optional)</label>
-                                                    <div type="text" class="form-control filter-input" onclick="input_click()">Your Establishment Primary Picture</div>
+                                                    <label>Your Picture (Optional)</label>
+                                                    <div type="text" class="form-control filter-input" onclick="input_click()">Your Profil Picture</div>
                                                     <input id="c_img_input" type="file" hidden name="img">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-12">
                                                 <div class="form-group" style="text-align: center">
-                                                    <img width="200px" height="200px" src="<?php echo base_url("uploads/establishments/$estab_profile[img]")?>" alt="">
+                                                    <img width="200px" height="200px" src="<?php echo base_url("uploads/providers/$provider_profile[img]")?>" alt="">
                                                 </div>
                                             </div>
                                             
@@ -165,26 +151,6 @@
                                         <h4><i class="ion-ios-location"></i> Location /Contacts :</h4>
                                         <div class="row">
 
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Adress in Azerbaijan (Optional)</label>
-                                                    <input type="text" class="form-control filter-input" placeholder="Your Adress in Azerbaijan" name="address_az" value="<?php echo $address_az?>">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Adress in English (Optional)</label>
-                                                    <input type="text" class="form-control filter-input" placeholder="Your Adress in English" name="address_en" value="<?php echo $address_en?>">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Adress in Russian (Optional)</label>
-                                                    <input type="text" class="form-control filter-input" placeholder="Your Adress in Russian" name="address_ru" value="<?php echo $address_en?>">
-                                                </div>
-                                            </div>
 
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -208,16 +174,13 @@
                                                 </div>
                                             </div>
 
-                                            <input type="hidden" name="lat" id="lattitude">
-                                            <input type="hidden" name="lon" id="longtude">
-
                                             <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Your Map Address (click on the map to choose your coordinate)</label>
-                                                    <div id="c_map" style=" height: 400px; cursor: pointer!important;"></div>
+                                                <label>Birth date</label>
+                                                <div id="datepicker-from" class="input-group date" >
+                                                    <input class="form-control" type="text" placeholder="Select date" name="birthday" value="<?php echo $birthday?>">
+                                                    <span class="input-group-addon"><i class="icofont-ui-calendar"></i></span>
                                                 </div>
                                             </div>
-
 
                                         </div>
                                     </div>
@@ -249,13 +212,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12">
-                                                <label>Birth date</label>
-                                                <div id="datepicker-from" class="input-group date" >
-                                                    <input class="form-control" type="text" placeholder="Select date" name="birthday" value="<?php echo $birthday?>">
-                                                    <span class="input-group-addon"><i class="icofont-ui-calendar"></i></span>
-                                                </div>
-                                            </div>
+
 
                                             <div class="col-md-12" style="margin-top: 20px">
                                                 <div class="row">

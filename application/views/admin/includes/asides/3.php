@@ -25,9 +25,11 @@
 </li>
 
 <li>
-    <a href="db-add-listing.html">
-        <i class="ion-ios-plus-outline"></i>Add Listings</a>
+    <a href="<?php echo base_url("establishment/calendar")?>">
+        <i class="ion-ios-calendar-outline"></i>Event Calendar</a>
 </li>
+
+
 <li class="has-sub">
     <a class="js-arrow" href="#">
         <i class="ion-ios-star-outline"></i>Reviews
@@ -45,10 +47,8 @@
         </li>
     </ul>
 </li>
-<li>
-    <a href="db-my-profile.html">
-        <i class="ion-ios-person-outline"></i>My profile</a>
-</li>
+
+
 <li>
     <a href="db-invoices.html">
         <i class="ion-ios-printer-outline"></i>Invoices</a>
