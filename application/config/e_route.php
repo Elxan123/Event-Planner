@@ -1,7 +1,9 @@
 <?php
-//login
+//login - register
 $route['login'] = 'Login/index';
 $route['login_act'] = 'Login/login_act';
+$route['register_act'] = 'Login/register_act';
+
 //logout
 $route['logout'] = 'Login/logout';
 
@@ -33,3 +35,8 @@ $route['service_update/(:any)'] = 'admin/Services/update/$1';
 $route['service_update_act/(:any)'] = 'admin/Services/update_act/$1';
 $route['service_delete/(:any)'] = 'admin/Services/delete/$1';
 
+//Appeals
+$route['estab_approve'] = 'admin/Appeals/estab';
+$route['provider_approve'] = 'admin/Appeals/provider';
+$route['approve_appeal/(:any)/(:any)'] = 'admin/Appeals/approve/$1/$2';
+$route['reject_appeal/(:any)/(:any)'] = 'admin/Appeals/reject/$1/$2';
