@@ -62,7 +62,7 @@ function getCafes(url) {
                                     </div>
                                     <div class="col-md-6 no-pad-lr">
                                         <div class="trending-title-box">
-                                            <h4><a href="${baseUrl}/estab-single/${estab.user_id}">${estab.estab}</a></h4>
+                                            <h4><a href="${baseUrl}establishment-single/${estab.user_id}">${estab.estab}</a></h4>
                                             <ul class="trending-address">
                                                 <li><i class="ion-ios-location"></i>
                                                     <p>${estab.city}, ${estab.address}</p>
