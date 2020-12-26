@@ -44,7 +44,6 @@
                     <div class="sidebar-title">
                         <h2>Filter Listing</h2>
                     </div>
-                    <form>
                         <div class="form-group filter-group">
                             <input type="text" class="form-control filter-input fSearch" id="search-filter" name="search-bar" placeholder="I'm looking for . . .">
                             <select class="filter-input cityCh" id="option-select">
@@ -83,8 +82,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <button type="submit" class="btn v1">Apply</button>
-                    </form>
                 </div>
             </div>
         </div>

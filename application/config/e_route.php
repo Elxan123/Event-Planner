@@ -43,3 +43,4 @@ $route['reject_appeal/(:any)/(:any)'] = 'admin/Appeals/reject/$1/$2';
 
 //Filter
 $route['services_load'] = 'EventOrganize/services_load';
+$route['estabs_load'] = 'EventOrganize/estabs_load';

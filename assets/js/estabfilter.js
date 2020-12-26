@@ -1,25 +1,8 @@
 let myurl = new URL(location.href);
 let baseUrl = document.getElementById('url').dataset.url;
-let  serviceCh = $('.serviceCh');
 let  fSearch = $('.fSearch');
 let  ctgCh = $('.ctgCh');
 let  cityCh = $('.cityCh');
-
-serviceCh.change(() => {
-    let urlParams;
-    $('.serviceCh:checked').each((a,b) => {
-        if (typeof b != 'undefined'){
-            if (typeof urlParams != 'undefined') {
-                urlParams = urlParams + ' ' + b.value;
-            }else{
-                urlParams = b.value;
-            }
-        }else {
-            urlParams = 'undefined';
-        }
-    })
-    setUrl(urlParams,'services')
-})
 
 cityCh.change(() => {
     let urlParam = cityCh.val();
@@ -68,30 +51,30 @@ function getCafes(url) {
             data = JSON.parse(data);
             let list = document.getElementById('list-view');
             list.innerHTML = "";
-            data.forEach((provider) => {
+            data.forEach((estab) => {
                 let div = document.createElement('div');
                 div.classList.add('row');
                 div.classList.add('trending-place-item');
                 div.innerHTML = `<div class="col-md-6 no-pad-lr">
                                         <div class="trending-img">
-                                            <img src="${baseUrl}uploads/providers/${provider.img}" alt="#">
+                                            <img src="${baseUrl}uploads/establishments/${estab.img}" alt="#">
                                         </div>
                                     </div>
                                     <div class="col-md-6 no-pad-lr">
                                         <div class="trending-title-box">
-                                            <h4><a href="${baseUrl}provider-single/${provider.user_id}">${provider.name} ${provider.surname}</a></h4>
+                                            <h4><a href="${baseUrl}establishment-single/${estab.user_id}">${estab.estab}</a></h4>
                                             <ul class="trending-address">
                                                 <li><i class="ion-ios-location"></i>
-                                                    <p>${provider.city}</p>
+                                                    <p>${estab.city}, ${estab.address}</p>
                                                 </li>
                                                 <li><i class="ion-ios-telephone"></i>
-                                                    <p>${provider.mobile}</p>
+                                                    <p>${estab.mobile}</p>
                                                 </li>
                                                 <li><i class="ion-social-facebook"></i>
-                                                    <p>${provider.facebook}</p>
+                                                    <p>${estab.facebook}</p>
                                                 </li>
                                                 <li><i class="ion-social-instagram"></i>
-                                                    <p>${provider.instagram}</p>
+                                                    <p>${estab.instagram}</p>
                                                 </li>
                                             </ul>
                                         </div>
@@ -124,7 +107,7 @@ function checkBoxes(boxType, names) {
 }
 
 function setRequestUrl() {
-    let requestURL = baseUrl+'services_load?'+myurl.searchParams;
+    let requestURL = baseUrl+'estabs_load?'+myurl.searchParams;
     getCafes(requestURL)
 }
 
