@@ -13,6 +13,9 @@ class GeneralinformationProvider extends CI_Controller{
     
     public function index()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["provider_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("providers")->row_array();
+
         $data['page_info'] = ['name' => 'dashboard'];
         $this->load->view('admin/includes/index',$data);
     }
@@ -217,8 +220,8 @@ class GeneralinformationProvider extends CI_Controller{
             ->from("service_provider")
             ->join("providers", "providers.user_id = service_provider.provider_id")
             ->join("services", "services.id = service_provider.service_id")
+            ->where("service_provider.provider_id ", $this->session->userdata("user_id"))
             ->get()->result_array();
-
 
 
         $data['page_info'] = ['name' => 'provider/services/content'];
@@ -273,6 +276,77 @@ class GeneralinformationProvider extends CI_Controller{
     {
         $this->db->where("id", $service_id)->delete("service_provider");
         redirect(base_url("providers/choose-service"));
+    }
+
+
+
+    public function event_category()
+    {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["provider_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("providers")->row_array();
+
+        $data["ctg_provider"] = $this->db->select("ctg_provider.id as ctg_provider_id, event_ctg.*, event_type.*")
+            ->from("ctg_provider")
+            ->join("event_ctg", "event_ctg.id = ctg_provider.event_ctg_id ")
+            ->join("providers", "providers.user_id = ctg_provider.provider_id")
+            ->join("event_type", "event_type.id = event_ctg.type_id")
+            ->where("ctg_provider.provider_id ", $this->session->userdata("user_id"))
+            ->get()->result_array();
+
+
+        $data['page_info'] = ['name' => 'provider/event_category/content'];
+        $this->load->view('admin/includes/index',$data);
+    }
+
+    public function event_category_add()
+    {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["provider_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("providers")->row_array();
+
+        $data["categories"] = $this->db->select("event_ctg.*, event_type.type")
+            ->from("event_ctg")
+            ->join("event_type", "event_type.id = event_ctg.type_id")
+            ->get()
+            ->result_array();
+
+
+        $data['page_info'] = ['name' => 'provider/event_category/add'];
+        $this->load->view('admin/includes/index',$data);
+    }
+
+    public function event_category_add_action()
+    {
+        $id = $this->session->userdata("user_id");
+
+        $category_id = $this->input->post("category_id");
+
+        if (!empty($category_id)){
+
+            if(empty($this->db->where(array("event_ctg_id " => $category_id, "provider_id  " => $id))->get("ctg_provider")->result_array())){
+
+                $this->db->insert("ctg_provider", array(
+                    "provider_id" => $id,
+                    "event_ctg_id " => $category_id,
+                ));
+
+                redirect(base_url("providers/choose-event-category"));
+
+            }else{
+                $this->session->set_flashdata("register_alert", "You cannot add the same service twice");
+                redirect(base_url("providers/add-event-category"));
+            }
+
+        }else{
+            $this->session->set_flashdata("register_alert", "Dont empty the important fields");
+            redirect(base_url("providers/add-event-category"));
+        }
+
+    }
+
+    public function event_category_delete($category_id)
+    {
+        $this->db->where("id", $category_id)->delete("ctg_provider");
+        redirect(base_url("providers/choose-event-category"));
     }
 
 

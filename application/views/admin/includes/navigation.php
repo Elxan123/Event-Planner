@@ -1,4 +1,4 @@
-<div class="dash-breadcrumb">
+<div class="dash-breadcrumb" style="visibility: hidden; padding: 0px">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">

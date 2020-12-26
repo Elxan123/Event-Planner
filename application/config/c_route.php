@@ -20,6 +20,20 @@ $route['establishment/gallery-refresh'] = "admin/establishment/Generalinformatio
 $route['establishment/calendar'] = "admin/establishment/Generalinformation/calendar";
 
 
+$route['establishment/choose-event-category'] = "admin/establishment/Generalinformation/event_category";
+$route['establishment/add-event-category'] = "admin/establishment/Generalinformation/event_category_add";
+$route['establishment/add-event-category-action'] = "admin/establishment/Generalinformation/event_category_add_action";
+$route['establishment/delete-event-category/(:any)'] = "admin/establishment/Generalinformation/event_category_delete/$1";
+
+
+
+$route['providers/choose-event-category'] = "admin/provider/GeneralinformationProvider/event_category";
+$route['providers/add-event-category'] = "admin/provider/GeneralinformationProvider/event_category_add";
+$route['providers/add-event-category-action'] = "admin/provider/GeneralinformationProvider/event_category_add_action";
+$route['providers/delete-event-category/(:any)'] = "admin/provider/GeneralinformationProvider/event_category_delete/$1";
+
+
+
 
 $route['providers/general-info'] = "admin/provider/GeneralinformationProvider/general_information";
 $route['providers/general-info-update'] = "admin/provider/GeneralinformationProvider/general_information_update";
