@@ -30,8 +30,3 @@
 </li>
 
 
-<li>
-    <a href="<?php echo base_url("providers/calendar")?>">
-        <i class="ion-ios-calendar-outline"></i>Event Calendar</a>
-</li>
-
