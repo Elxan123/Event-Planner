@@ -9,7 +9,10 @@
 <script src="<?php echo base_url('assets') ?>/js/fullcalendar.min.js"></script>
 
 
-<script src="<?php echo base_url('assets') ?>/js/c_script.js"></script>
+
+<?php if ($page_info['name'] == 'establishment/calendar/content' || $page_info['name'] == 'establishment/gallery/content'|| $page_info['name'] == 'provider/gallery/content'){ ?>
+    <script src="<?php echo base_url("assets")?>/js/c_script.js"></script>
+<?php } ?>
 
 
 <!-- Dashboard JS-->
