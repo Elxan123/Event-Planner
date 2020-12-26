@@ -6,6 +6,7 @@
         <?php $this->load->view("admin/includes/aside")?>
         <div class="dash-content-wrap">
             <?php $this->load->view("admin/includes/header")?>
+            <?php $this->load->view("admin/includes/navigation")?>
             <?php $this->load->view("admin/".$page_info['name'])?>
             <?php $this->load->view('admin/includes/footer')?>
         </div>
