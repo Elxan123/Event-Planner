@@ -1,4 +1,4 @@
-<div class="user-login-section section-padding bg-fixed" style="background-image: url("<?php echo base_url('assets/')?>images/header/hero-5.jpg")">
+<div class="user-login-section section-padding bg-fixed" style="background-image: url(<?php echo base_url('assets/')?>images/header/hero-5.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-md-10 offset-md-1  text-center">
