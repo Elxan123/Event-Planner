@@ -15,6 +15,9 @@
     <link href="<?php echo base_url('assets') ?>/css/style.css" rel="stylesheet" />
     <!-- Dashboard CSS -->
     <link href="<?php echo base_url('assets') ?>/css/dashboard.css" rel="stylesheet" />
+    
+    <link href="<?php echo base_url('assets') ?>/css/dropzone.css" rel="stylesheet" />
+    
     <!--color switcher css-->
     <link rel="stylesheet" href="<?php echo base_url('assets') ?>/css/switcher/skin-aqua.css" media="screen" id="style-colors" />
     <!-- Document Title -->

@@ -139,7 +139,7 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Profile Picture (Optional)</label>
+                                        <label>Establishment Primary Picture (Optional)</label>
                                         <div type="text" class="form-control filter-input" onclick="input_click()">Your Establishment Primary Picture</div>
                                         <input id="c_img_input" type="file" hidden name="img">
                                     </div>
