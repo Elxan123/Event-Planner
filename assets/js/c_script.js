@@ -1,3 +1,4 @@
+// alert('aa');
 //dropzone nun dinamik sekilleri yuklemesi
 var dropzone_id = document.getElementById("dropzone");
 if (dropzone_id){

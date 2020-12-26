@@ -40,3 +40,6 @@ $route['estab_approve'] = 'admin/Appeals/estab';
 $route['provider_approve'] = 'admin/Appeals/provider';
 $route['approve_appeal/(:any)/(:any)'] = 'admin/Appeals/approve/$1/$2';
 $route['reject_appeal/(:any)/(:any)'] = 'admin/Appeals/reject/$1/$2';
+
+//Filter
+$route['services_load'] = 'EventOrganize/services_load';

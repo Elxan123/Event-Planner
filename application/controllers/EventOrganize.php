@@ -16,40 +16,34 @@ class EventOrganize extends CI_Controller{
 
     public function services()
     {
-        $data["providers"] = $this->db->select("providers.*")
-            ->from("providers")
-            ->join("service_provider", "service_provider.provider_id = providers.user_id")
-            ->join("services", "services.id = service_provider.service_id")
-            ->get()->result_array();
-
-//        pr($data["providers"]);
-
-
+        $data['services'] = $this->db->select('services.id, services.name_en as name')->get('services')->result_array();
+        $data['cities'] = $this->db->select('city.id, city.name_en as name')->get('city')->result_array();
+        $data['ctgs'] = $this->db->select('event_ctg.id, event_ctg.name_en as name, event_type.type')->
+            from('event_ctg')->join('event_type','event_type.id = event_ctg.type_id','left')->
+            get()->result_array();
         $data['page_info'] = ['name' => 'choose_services_organizers_list'];
+        if ($this->input->get('city')){
+            $data['selectedCity'] = $this->input->get('city');
+        }
+        if ($this->input->get('ctg')){
+            $data['selectedCtg'] = $this->input->get('ctg');
+        }
         $this->load->view('front/includes/index',$data);
     }
 
-
-    public function establishments()
-    {
-        $data['page_info'] = ['name' => 'choose_establishment_list'];
-        $this->load->view('front/includes/index',$data);
-    }
-
-    public function service_filter()
+    public function services_load()
     {
 
-        $ctgs = $this->input->get('menu',true);
-        $amenities = $this->input->get('amenities',true);
-        $type = $this->input->get('type',true);
+        $services = $this->input->get('services',true);
+        $city = $this->input->get('city',true);
+        $ctg = $this->input->get('ctg',true);
         $search = $this->input->get('search',true);
 
         //Make string for query
-        $search_cafe = $this->search_maker($search, 'salon.name_az');
-        $search_service = $this->search_maker($this->input->get('search',true), "services.service_name_$lang");
-        $search_category = $this->search_maker($this->input->get('search',true), "categories.name_$lang");
-        $amenity_string = $this->string_maker($amenities,'`as`.`amenity_id`');
-        $ctg_string = $this->string_maker($ctgs, 'categories.id');
+        $search_cafe = $this->search_maker($search, 'users.name');
+        $search_service = $this->search_maker($search, 'users.surname');
+        $search_category = $this->search_maker($search, "services.name_en");
+        $amenity_string = $this->string_maker($services,'service_provider.service_id');
 
         $query_string_having = 'true ';
         if (!empty($search_cafe)){
@@ -58,40 +52,76 @@ class EventOrganize extends CI_Controller{
         if (!empty($amenity_string)){
             $query_string_having = $query_string_having.' and '.$amenity_string;
         }
-        if (!empty($ctg_string)){
-            $query_string_having = $query_string_having.' and '.$ctg_string;
-        }
+
         $query_string_where = 'true ';
-        if (!empty($type)){
-            $query_string_where = $query_string_where.'and (salon.type_id = '.$type.' or salon.type_id2 = '.$type.')';
+        if (!empty($city)){
+            $query_string_where = $query_string_where.'and (providers.city_id = '.$city.')';
+        }
+        if (!empty($ctg)){
+            $query_string_where = $query_string_where.'and (ctg_provider.event_ctg_id = '.$ctg.')';
         }
 
 
-        $cafes = $this->db->query("
-        SELECT DISTINCT salon.id, salon.name_az, areas.areas_name_$lang as area, city.name_$lang as city, salon.rating, salon.rating_count, salon.img, services.service_name_az, categories.name_az, `type`.name_$lang as type_name
-        FROM salon 
-        LEFT JOIN areas 
-        ON salon.area_id = areas.areas_id 
-        LEFT JOIN city 
-        ON areas.city_id = city.id
-        LEFT JOIN `type`
-        ON `type`.id = salon.type_id
-        RIGHT JOIN `as` 
-        ON `as`.salon_id = salon.id
-        RIGHT JOIN css
-        ON css.salon_id = salon.id
+        $providers = $this->db->query("
+        SELECT DISTINCT providers.user_id, providers.img, users.name, users.surname, city.name_en as city, users.mobile, providers.facebook, providers.instagram, services.name_en
+        FROM providers 
+        INNER JOIN users 
+        ON users.id = providers.user_id
+        LEFT JOIN city
+        ON city.id = providers.city_id
+        RIGHT JOIN service_provider
+        ON service_provider.provider_id = providers.user_id
         LEFT JOIN services
-        ON services.service_id = css.service_id
-        LEFT JOIN categories
-        ON categories.id = services.category_id
+        ON services.id = service_provider.service_id
+        RIGHT JOIN ctg_provider 
+        ON ctg_provider.provider_id = providers.user_id
         WHERE $query_string_where
-        group by salon.id
+        group by providers.user_id
 		having $query_string_having
         ")->result_array();
 
-        print_r(json_encode($cafes));
-
+        print_r(json_encode($providers));
     }
+
+    private function string_maker($array,$column){
+        if (!empty($array)) {
+            $array = explode(" ",$array);
+            $string = "(sum(case when ".$column." =";
+            foreach ($array as $item) {
+                $string = $string . " $item then 1 else 0 end) > 0 and sum(case when ".$column." =";
+            }
+            $string = substr($string, 0, -(21 + strlen($column)));
+            $string = $string . ')';
+        }else{
+            $string = null;
+        }
+        return $string;
+    }
+    private function search_maker($array,$column){
+        if (!empty($array)) {
+            $array = explode(" ",$array);
+            $string = "(".$column." LIKE '%";
+            foreach ($array as $item) {
+                $string = $string . "$item%' or".$column." LIKE '%";
+            }
+            $string = substr($string, 0, -(11 + strlen($column)));
+            $string = $string . ')';
+        }else{
+            $string = null;
+        }
+        return $string;
+    }
+    private function search_for_adds($search, $column){
+        $string = "(sum(case when ".$column." LIKE '%".$search."%' then 1 else 0 end) > 0)";
+    }
+
+    public function establishments()
+    {
+        $data['page_info'] = ['name' => 'choose_establishment_list'];
+        $this->load->view('front/includes/index',$data);
+    }
+
+   
 
 
 }
