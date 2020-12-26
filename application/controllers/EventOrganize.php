@@ -9,6 +9,17 @@ class EventOrganize extends CI_Controller{
 
     public function index()
     {
+        $ses = "?";
+        if ($this->input->get('search',true)){
+            $ses = $ses.'search='.$this->input->get('search',true)."&";
+        }
+        if ($this->input->get('city',true)){
+            $ses = $ses.'city='.$this->input->get('city',true)."&";
+        }
+        if ($this->input->get('ctg',true)){
+            $ses = $ses.'ctg='.$this->input->get('ctg',true)."&";
+        }
+        $this->session->set_flashdata('filter_link',$ses);
         $data['page_info'] = ['name' => 'choose_event_organizer'];
         $this->load->view('front/includes/index',$data);
     }
@@ -21,11 +32,11 @@ class EventOrganize extends CI_Controller{
         $data['ctgs'] = $this->db->select('event_ctg.id, event_ctg.name_en as name, event_type.type')->
             from('event_ctg')->join('event_type','event_type.id = event_ctg.type_id','left')->
             get()->result_array();
-        if ($this->input->get('city')){
-            $data['selectedCity'] = $this->input->get('city');
+        if ($this->input->get('city',true)){
+            $data['selectedCity'] = $this->input->get('city',true);
         }
-        if ($this->input->get('ctg')){
-            $data['selectedCtg'] = $this->input->get('ctg');
+        if ($this->input->get('ctg',true)){
+            $data['selectedCtg'] = $this->input->get('ctg',true);
         }
         $data['page_info'] = ['name' => 'choose_services_organizers_list'];
         $this->load->view('front/includes/index',$data);
@@ -90,11 +101,11 @@ class EventOrganize extends CI_Controller{
         $data['ctgs'] = $this->db->select('event_ctg.id, event_ctg.name_en as name, event_type.type')->
         from('event_ctg')->join('event_type','event_type.id = event_ctg.type_id','left')->
         get()->result_array();
-        if ($this->input->get('city')){
-            $data['selectedCity'] = $this->input->get('city');
+        if ($this->input->get('city',true)){
+            $data['selectedCity'] = $this->input->get('city',true);
         }
-        if ($this->input->get('ctg')){
-            $data['selectedCtg'] = $this->input->get('ctg');
+        if ($this->input->get('ctg',true)){
+            $data['selectedCtg'] = $this->input->get('ctg',true);
         }
         $data['page_info'] = ['name' => 'choose_establishment_list'];
         $this->load->view('front/includes/index',$data);
