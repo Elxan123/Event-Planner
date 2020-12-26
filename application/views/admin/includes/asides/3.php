@@ -1,43 +1,29 @@
 <!--Establisher's Panel-->
 <li>
-    <a class="active" href="db.html">
+    <a class="active" href="<?php echo base_url("dashboard")?>">
         <i class="ion-ios-gear-outline"></i>Dashboard
     </a>
 </li>
-<li class="has-sub">
-    <a class="js-arrow" href="#">
-        <i class="ion-social-buffer-outline"></i>My Listings
-    </a>
-    <ul class="list-unstyled navbar__sub-list js-sub-list">
-        <li>
-            <a href="db-my-listing.html">Active</a>
-            <span class="inbox-num active">6</span>
-        </li>
-        <li>
-            <a href="db-my-listing.html">Pending</a>
-            <span class="inbox-num pending">8</span>
-        </li>
-        <li>
-            <a href="db-my-listing.html">Expired</a>
-            <span class="inbox-num expired">12</span>
-        </li>
-    </ul>
-</li>
+
+
 
 <li>
-    <a href="db-bookings.html">
-        <i class="ion-ios-copy-outline"></i>Bookings</a>
+    <a href="<?php echo base_url("establishment/general-info")?>">
+        <i class="ion-ios-copy-outline"></i>My Profile</a>
 </li>
+
+
 <li>
     <a href="db-messages.html">
-        <i class="ion-ios-email-outline"></i>Inbox</a>
+    <i class="ion-ios-email-outline"></i>All Vendors</a>
     <span class="inbox-num pending">3</span>
 </li>
 
 <li>
-    <a href="db-favourites.html">
-        <i class="ion-ios-heart-outline"></i>Favourites</a>
+    <a href="<?php echo base_url("establishment/gallery")?>">
+        <i class="ion-images"></i>Gallery</a>
 </li>
+
 <li>
     <a href="db-add-listing.html">
         <i class="ion-ios-plus-outline"></i>Add Listings</a>

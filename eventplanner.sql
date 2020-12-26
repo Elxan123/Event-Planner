@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 25, 2020 at 11:51 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.1.30
+-- Anamakine: 127.0.0.1
+-- Üretim Zamanı: 26 Ara 2020, 08:09:42
+-- Sunucu sürümü: 10.4.11-MariaDB
+-- PHP Sürümü: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `eventplanner`
+-- Veritabanı: `eventplanner`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Tablo için tablo yapısı `admin`
 --
 
 CREATE TABLE `admin` (
@@ -35,7 +35,7 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `checklist`
+-- Tablo için tablo yapısı `checklist`
 --
 
 CREATE TABLE `checklist` (
@@ -48,7 +48,7 @@ CREATE TABLE `checklist` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city`
+-- Tablo için tablo yapısı `city`
 --
 
 CREATE TABLE `city` (
@@ -59,7 +59,7 @@ CREATE TABLE `city` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `city`
+-- Tablo döküm verisi `city`
 --
 
 INSERT INTO `city` (`id`, `name_az`, `name_en`, `name_ru`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `city` (`id`, `name_az`, `name_en`, `name_ru`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ctg_estab`
+-- Tablo için tablo yapısı `ctg_estab`
 --
 
 CREATE TABLE `ctg_estab` (
@@ -82,7 +82,7 @@ CREATE TABLE `ctg_estab` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ctg_provider`
+-- Tablo için tablo yapısı `ctg_provider`
 --
 
 CREATE TABLE `ctg_provider` (
@@ -94,7 +94,7 @@ CREATE TABLE `ctg_provider` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
+-- Tablo için tablo yapısı `customer`
 --
 
 CREATE TABLE `customer` (
@@ -104,7 +104,7 @@ CREATE TABLE `customer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estab`
+-- Tablo için tablo yapısı `estab`
 --
 
 CREATE TABLE `estab` (
@@ -117,18 +117,29 @@ CREATE TABLE `estab` (
   `img` varchar(255) NOT NULL,
   `instagram` varchar(255) NOT NULL,
   `facebook` varchar(255) NOT NULL,
-  `lan` int(11) NOT NULL,
-  `lot` int(11) NOT NULL,
+  `lat` double NOT NULL,
+  `lon` double NOT NULL,
   `address_az` varchar(255) NOT NULL,
   `address_ru` varchar(255) NOT NULL,
   `address_en` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Tablo döküm verisi `estab`
+--
+
+INSERT INTO `estab` (`user_id`, `city_id`, `name`, `about_az`, `about_ru`, `about_en`, `img`, `instagram`, `facebook`, `lat`, `lon`, `address_az`, `address_ru`, `address_en`, `status`) VALUES
+(5, 4, 'asdasd', 'ads', 'asdas', 'asdd', 'image-2020-12-21-16-35-52.png', 'asdas', 'asd', 40, 50, 'Adress In Azerbaijan (Optional)', 'Adress In Russian (Optional)', 'Adress In English (Optional)', 12),
+(6, 3, 'asdasdas', 'ads', '', '', 'capture.PNG', 'ada', 'ad', 0, 0, 'adasd', 'sda', 'asda', 1),
+(7, 4, 'asdas', 'ads', '', '', 'image-2020-12-21-16-39-29.png', 'ada', 'ad', 40.403058738875764, 49.87847791559144, 'adasd', 'sda', 'asda', 1),
+(3, 3, 'Establishment Name', 'About : Azerbaijan (Optional)', 'About : Russian (Optional)', 'About : English (Optional)', 'ad.jpg', 'Instagram Link (Optional)', 'Facebook (Optional)', 0, 0, 'Adress In Azerbaijan (Optional)', 'Adress In English (Optional)', 'Adress In English (Optional)', 1),
+(8, 4, 'establishment', 'About : Azerbaijan (Optional)', 'About : Russian (Optional)', 'About : English (Optional)', 'image-2020-12-21-16-35-52.png', 'Instagram Link (Optional)', 'Facebook (Optional)', 40.401441049850064, 49.878617390460214, 'asdasd', 'asdsad', 'asdsad', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
+-- Tablo için tablo yapısı `events`
 --
 
 CREATE TABLE `events` (
@@ -145,7 +156,7 @@ CREATE TABLE `events` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event_ctg`
+-- Tablo için tablo yapısı `event_ctg`
 --
 
 CREATE TABLE `event_ctg` (
@@ -158,7 +169,7 @@ CREATE TABLE `event_ctg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `event_ctg`
+-- Tablo döküm verisi `event_ctg`
 --
 
 INSERT INTO `event_ctg` (`id`, `type_id`, `name_az`, `name_en`, `name_ru`, `img`) VALUES
@@ -168,7 +179,7 @@ INSERT INTO `event_ctg` (`id`, `type_id`, `name_az`, `name_en`, `name_ru`, `img`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event_type`
+-- Tablo için tablo yapısı `event_type`
 --
 
 CREATE TABLE `event_type` (
@@ -177,7 +188,7 @@ CREATE TABLE `event_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `event_type`
+-- Tablo döküm verisi `event_type`
 --
 
 INSERT INTO `event_type` (`id`, `type`) VALUES
@@ -187,7 +198,7 @@ INSERT INTO `event_type` (`id`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gallery_estab`
+-- Tablo için tablo yapısı `gallery_estab`
 --
 
 CREATE TABLE `gallery_estab` (
@@ -199,7 +210,7 @@ CREATE TABLE `gallery_estab` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gallery_provider`
+-- Tablo için tablo yapısı `gallery_provider`
 --
 
 CREATE TABLE `gallery_provider` (
@@ -211,7 +222,7 @@ CREATE TABLE `gallery_provider` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `providers`
+-- Tablo için tablo yapısı `providers`
 --
 
 CREATE TABLE `providers` (
@@ -229,7 +240,7 @@ CREATE TABLE `providers` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `services`
+-- Tablo için tablo yapısı `services`
 --
 
 CREATE TABLE `services` (
@@ -243,7 +254,7 @@ CREATE TABLE `services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `services`
+-- Tablo döküm verisi `services`
 --
 
 INSERT INTO `services` (`id`, `name_az`, `name_en`, `name_ru`, `desc_az`, `desc_en`, `desc_ru`) VALUES
@@ -252,7 +263,7 @@ INSERT INTO `services` (`id`, `name_az`, `name_en`, `name_ru`, `desc_az`, `desc_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `service_event`
+-- Tablo için tablo yapısı `service_event`
 --
 
 CREATE TABLE `service_event` (
@@ -264,7 +275,7 @@ CREATE TABLE `service_event` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `service_provider`
+-- Tablo için tablo yapısı `service_provider`
 --
 
 CREATE TABLE `service_provider` (
@@ -277,7 +288,7 @@ CREATE TABLE `service_provider` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tablo için tablo yapısı `users`
 --
 
 CREATE TABLE `users` (
@@ -292,40 +303,44 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Tablo döküm verisi `users`
 --
 
 INSERT INTO `users` (`id`, `user_type_id`, `name`, `surname`, `email`, `mobile`, `password`, `birthday`) VALUES
 (1, 1, 'admin', 'admin', 'admin@admin.com', '0550000000', 'admin', '2020-12-02'),
 (2, 2, 'Provider', 'Provider', 'Provider@provider.com', '0500000000', 'provider', '2020-12-01'),
-(3, 3, 'Estab', 'Estab', 'Estab@estab.com', '0700000000', 'estab', '2020-12-01'),
-(4, 4, 'User', 'User', 'user@user.com', '0990000000', 'user', '2020-12-01');
+(3, 2, 'Name', 'Surname', 'Estab@estab.com', '1111', 'estab', '2020-12-16'),
+(4, 4, 'User', 'User', 'user@user.com', '0990000000', 'user', '2020-12-01'),
+(5, 2, 'adad', 'asds', 'asd', '12321313', 'asdas', '2020-12-24'),
+(6, 2, 'asddada', 'asdasd', '', 'asda', 'asdasd', '2020-12-24'),
+(7, 2, 'asddada', 'asda', '', '23123213', 'asdasd', '2020-12-09'),
+(8, 2, 'Cavid', 'lalayev', 'Email (Optional)', '21313', 'estab', '2020-12-23');
 
 --
--- Indexes for dumped tables
+-- Dökümü yapılmış tablolar için indeksler
 --
 
 --
--- Indexes for table `admin`
+-- Tablo için indeksler `admin`
 --
 ALTER TABLE `admin`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `checklist`
+-- Tablo için indeksler `checklist`
 --
 ALTER TABLE `checklist`
   ADD PRIMARY KEY (`id`),
   ADD KEY `provider_id` (`provider_id`);
 
 --
--- Indexes for table `city`
+-- Tablo için indeksler `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ctg_estab`
+-- Tablo için indeksler `ctg_estab`
 --
 ALTER TABLE `ctg_estab`
   ADD PRIMARY KEY (`id`),
@@ -333,7 +348,7 @@ ALTER TABLE `ctg_estab`
   ADD KEY `event_ctg_id` (`event_ctg_id`);
 
 --
--- Indexes for table `ctg_provider`
+-- Tablo için indeksler `ctg_provider`
 --
 ALTER TABLE `ctg_provider`
   ADD PRIMARY KEY (`id`),
@@ -341,20 +356,20 @@ ALTER TABLE `ctg_provider`
   ADD KEY `event_ctg_id` (`event_ctg_id`);
 
 --
--- Indexes for table `customer`
+-- Tablo için indeksler `customer`
 --
 ALTER TABLE `customer`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `estab`
+-- Tablo için indeksler `estab`
 --
 ALTER TABLE `estab`
   ADD KEY `user_id` (`user_id`),
   ADD KEY `city_id` (`city_id`);
 
 --
--- Indexes for table `events`
+-- Tablo için indeksler `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`),
@@ -363,34 +378,34 @@ ALTER TABLE `events`
   ADD KEY `provider_id` (`provider_id`);
 
 --
--- Indexes for table `event_ctg`
+-- Tablo için indeksler `event_ctg`
 --
 ALTER TABLE `event_ctg`
   ADD PRIMARY KEY (`id`),
   ADD KEY `type_id` (`type_id`);
 
 --
--- Indexes for table `event_type`
+-- Tablo için indeksler `event_type`
 --
 ALTER TABLE `event_type`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `gallery_estab`
+-- Tablo için indeksler `gallery_estab`
 --
 ALTER TABLE `gallery_estab`
   ADD PRIMARY KEY (`id`),
   ADD KEY `estab_id` (`estab_id`);
 
 --
--- Indexes for table `gallery_provider`
+-- Tablo için indeksler `gallery_provider`
 --
 ALTER TABLE `gallery_provider`
   ADD PRIMARY KEY (`id`),
   ADD KEY `provider_id` (`provider_id`);
 
 --
--- Indexes for table `providers`
+-- Tablo için indeksler `providers`
 --
 ALTER TABLE `providers`
   ADD PRIMARY KEY (`user_id`),
@@ -398,13 +413,13 @@ ALTER TABLE `providers`
   ADD KEY `city_id` (`city_id`);
 
 --
--- Indexes for table `services`
+-- Tablo için indeksler `services`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `service_event`
+-- Tablo için indeksler `service_event`
 --
 ALTER TABLE `service_event`
   ADD PRIMARY KEY (`id`),
@@ -412,7 +427,7 @@ ALTER TABLE `service_event`
   ADD KEY `service_id` (`service_id`);
 
 --
--- Indexes for table `service_provider`
+-- Tablo için indeksler `service_provider`
 --
 ALTER TABLE `service_provider`
   ADD PRIMARY KEY (`id`),
@@ -420,177 +435,177 @@ ALTER TABLE `service_provider`
   ADD KEY `provider_id` (`provider_id`);
 
 --
--- Indexes for table `users`
+-- Tablo için indeksler `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
 --
--- AUTO_INCREMENT for table `checklist`
+-- Tablo için AUTO_INCREMENT değeri `checklist`
 --
 ALTER TABLE `checklist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `city`
+-- Tablo için AUTO_INCREMENT değeri `city`
 --
 ALTER TABLE `city`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `ctg_estab`
+-- Tablo için AUTO_INCREMENT değeri `ctg_estab`
 --
 ALTER TABLE `ctg_estab`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `ctg_provider`
+-- Tablo için AUTO_INCREMENT değeri `ctg_provider`
 --
 ALTER TABLE `ctg_provider`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `events`
+-- Tablo için AUTO_INCREMENT değeri `events`
 --
 ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `event_ctg`
+-- Tablo için AUTO_INCREMENT değeri `event_ctg`
 --
 ALTER TABLE `event_ctg`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `event_type`
+-- Tablo için AUTO_INCREMENT değeri `event_type`
 --
 ALTER TABLE `event_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `gallery_estab`
+-- Tablo için AUTO_INCREMENT değeri `gallery_estab`
 --
 ALTER TABLE `gallery_estab`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `gallery_provider`
+-- Tablo için AUTO_INCREMENT değeri `gallery_provider`
 --
 ALTER TABLE `gallery_provider`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `services`
+-- Tablo için AUTO_INCREMENT değeri `services`
 --
 ALTER TABLE `services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `service_event`
+-- Tablo için AUTO_INCREMENT değeri `service_event`
 --
 ALTER TABLE `service_event`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `service_provider`
+-- Tablo için AUTO_INCREMENT değeri `service_provider`
 --
 ALTER TABLE `service_provider`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- Tablo için AUTO_INCREMENT değeri `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Constraints for dumped tables
+-- Dökümü yapılmış tablolar için kısıtlamalar
 --
 
 --
--- Constraints for table `admin`
+-- Tablo kısıtlamaları `admin`
 --
 ALTER TABLE `admin`
   ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `checklist`
+-- Tablo kısıtlamaları `checklist`
 --
 ALTER TABLE `checklist`
   ADD CONSTRAINT `checklist_ibfk_1` FOREIGN KEY (`provider_id`) REFERENCES `providers` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ctg_estab`
+-- Tablo kısıtlamaları `ctg_estab`
 --
 ALTER TABLE `ctg_estab`
   ADD CONSTRAINT `ctg_estab_ibfk_1` FOREIGN KEY (`event_ctg_id`) REFERENCES `event_ctg` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ctg_estab_ibfk_2` FOREIGN KEY (`estab_id`) REFERENCES `estab` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ctg_provider`
+-- Tablo kısıtlamaları `ctg_provider`
 --
 ALTER TABLE `ctg_provider`
   ADD CONSTRAINT `ctg_provider_ibfk_1` FOREIGN KEY (`event_ctg_id`) REFERENCES `event_ctg` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ctg_provider_ibfk_2` FOREIGN KEY (`provider_id`) REFERENCES `providers` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `customer`
+-- Tablo kısıtlamaları `customer`
 --
 ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `estab`
+-- Tablo kısıtlamaları `estab`
 --
 ALTER TABLE `estab`
   ADD CONSTRAINT `estab_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `estab_ibfk_2` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
 
 --
--- Constraints for table `events`
+-- Tablo kısıtlamaları `events`
 --
 ALTER TABLE `events`
   ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `events_ibfk_2` FOREIGN KEY (`provider_id`) REFERENCES `providers` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `event_ctg`
+-- Tablo kısıtlamaları `event_ctg`
 --
 ALTER TABLE `event_ctg`
   ADD CONSTRAINT `event_ctg_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `event_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `gallery_estab`
+-- Tablo kısıtlamaları `gallery_estab`
 --
 ALTER TABLE `gallery_estab`
   ADD CONSTRAINT `gallery_estab_ibfk_1` FOREIGN KEY (`estab_id`) REFERENCES `estab` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `gallery_provider`
+-- Tablo kısıtlamaları `gallery_provider`
 --
 ALTER TABLE `gallery_provider`
   ADD CONSTRAINT `gallery_provider_ibfk_1` FOREIGN KEY (`provider_id`) REFERENCES `providers` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `providers`
+-- Tablo kısıtlamaları `providers`
 --
 ALTER TABLE `providers`
   ADD CONSTRAINT `providers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `providers_ibfk_2` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
 
 --
--- Constraints for table `service_event`
+-- Tablo kısıtlamaları `service_event`
 --
 ALTER TABLE `service_event`
   ADD CONSTRAINT `service_event_ibfk_1` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `service_event_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `service_provider`
+-- Tablo kısıtlamaları `service_provider`
 --
 ALTER TABLE `service_provider`
   ADD CONSTRAINT `service_provider_ibfk_1` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
