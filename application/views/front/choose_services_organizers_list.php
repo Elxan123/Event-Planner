@@ -31,30 +31,6 @@
 
                         <div id="list-view" class="tab-pane active product-list">
                                 <div class="row trending-place-item">
-                                    <div class="col-md-6 no-pad-lr">
-                                        <div class="trending-img">
-                                            <img src="${baseUrl}uploads/providers/${provider.img}" alt="#">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 no-pad-lr">
-                                        <div class="trending-title-box">
-                                            <h4><a href="single-listing-one.html">${provider.name} ${provider.surname}</a></h4>
-                                            <ul class="trending-address">
-                                                <li><i class="ion-ios-location"></i>
-                                                    <p>${provider.city}</p>
-                                                </li>
-                                                <li><i class="ion-ios-telephone"></i>
-                                                    <p>${provider.mobile}</p>
-                                                </li>
-                                                <li><i class="ion-social-facebook"></i>
-                                                    <p>${provider.facebook}</p>
-                                                </li>
-                                                <li><i class="ion-social-instagram"></i>
-                                                    <p>${provider.instagram}</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
                         </div>
 
