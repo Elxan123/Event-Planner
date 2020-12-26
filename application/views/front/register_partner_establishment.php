@@ -5,14 +5,14 @@
         <div class="row align-items-center  pad-top-80">
             <div class="col-md-6 col-12">
                 <div class="breadcrumb-menu">
-                    <h2 class="page-title">Add Listing</h2>
+                    <h2 class="page-title">Become Partner</h2>
                 </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="breadcrumb-menu text-right sm-left">
                     <ul>
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Add Listing</a></li>
+                        <li class="active"><a href="">Home</a></li>
+                        <li><a href="#">Become Partner</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,758 +31,369 @@
                         <a data-toggle="tab" href="#general_info">General Information</a>
                     </li>
                     <li class="nav-item ">
-                        <a data-toggle="tab" href="#gallery">Gallery</a>
+                        <a data-toggle="tab" href="#about">About You</a>
                     </li>
                     <li class="nav-item">
-                        <a data-toggle="tab" href="#location">Location /Contacts<span class="text-grey"></span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a data-toggle="tab" href="#open_time">Business Hours</a>
-                    </li>
-                    <li class="nav-item">
-                        <a data-toggle="tab" href="#rooms">Rooms/Pricing</a>
+                        <a data-toggle="tab" href="#contact">Location /Contacts<span class="text-grey"></span></a>
                     </li>
                     <li class="nav-item">
                         <a data-toggle="tab" href="#social_network">Social Networks <span class="text-grey"></span></a>
                     </li>
                 </ul>
-                <div class="tab-content mar-tb-30 add_list_content">
-                    <div class="tab-pane fade show active" id="general_info">
-                        <h4> <i class="ion-ios-information"></i> General Information :</h4>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Listing Title</label>
-                                    <input type="text" class="form-control filter-input" placeholder="Hotel Ocean paradise">
-                                </div>
+
+                <form action="<?php echo base_url("become-partner-establishment-submit")?>" method="post" enctype="multipart/form-data">
+                    <div class="tab-content mar-tb-30 add_list_content">
+
+
+                        <?php if (!empty($this->session->flashdata("register_alert"))){ ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+
+                                <?php echo $this->session->flashdata("register_alert");?>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Category</label>
-                                    <div class="nice-select filter-input" tabindex="0"><span class="current">Select Categories</span>
-                                        <ul class="list">
-                                            <li class="option selected focus">Hotels</li>
-                                            <li class="option">Restaurants</li>
-                                            <li class="option">Shopping</li>
-                                            <li class="option">Eat &amp; Drink</li>
-                                            <li class="option">Events</li>
-                                            <li class="option">Fitness</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Keywords</label>
-                                    <input type="text" class="form-control filter-input" placeholder="Keywords should be separated by commas">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" class="form-control filter-input" placeholder="Address of your hotel">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <form>
+
+                        <?php }?>
+
+
+                        <div class="tab-pane fade show active" id="general_info">
+
+                            <?php
+
+                            $data = ($this->session->userdata("form_data")) ?  $this->session->userdata("form_data") : array(
+                                "name" => "",
+                                "surname" => "",
+                                "password" => "",
+                                "img" => "",
+                                "about_az" => "",
+                                "about_en" => "",
+                                "about_ru" => "",
+                                "mobile" => "",
+                                "birthday" => "",
+                                "email" => "",
+                                "facebook" => "",
+                                "instagram" => "",
+                                "remember" => "",
+                                "estab_name" => "",
+                                "address_az" => "",
+                                "address_en" => "",
+                                "address_ru" => "",
+                                "lat" => "",
+                                "lon" => "",
+                            );
+
+                            $name = $data["name"];
+                            $surname = $data["surname"];
+                            $password = $data["password"];
+                            $img = $data["img"];
+                            $about_az = $data["about_az"];
+                            $about_en = $data["about_en"];
+                            $about_ru = $data["about_ru"];
+                            $mobile = $data["mobile"];
+                            $birthday = $data["birthday"];
+                            $email = $data["email"];
+                            $facebook = $data["facebook"];
+                            $instagram  = $data["instagram"];
+                            $remember  = $data["remember"];
+                            $estab_name  = $data["estab_name"];
+                            $address_az  = $data["address_az"];
+                            $address_en  = $data["address_en"];
+                            $address_ru  = $data["address_ru"];
+                            $lat  = $data["lat"];
+                            $lon  = $data["lon"];
+
+
+                            ?>
+
+                            <h4> <i class="ion-ios-information"></i> General Information :</h4>
+                            <div class="row">
+
+                                <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="list_info">Description</label>
-                                        <textarea class="form-control" id="list_info" rows="4" placeholder="Enter your text here"></textarea>
+                                        <label>Name</label>
+                                        <input type="text" class="form-control filter-input" placeholder="Your Name" name="name" value="<?php echo $name?>">
                                     </div>
-                                </form>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Surname</label>
+                                        <input type="text" class="form-control filter-input" placeholder="Your Surname" name="surname" value="<?php echo $surname?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control filter-input" placeholder="Your Password" name="password">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Establishment Name</label>
+                                        <input type="text" class="form-control filter-input" placeholder="Your Establishment Name" name="estab_name" value="<?php echo $estab_name?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Profile Picture (Optional)</label>
+                                        <div type="text" class="form-control filter-input" onclick="input_click()">Your Establishment Primary Picture</div>
+                                        <input id="c_img_input" type="file" hidden name="img">
+                                    </div>
+                                </div>
+
+                                <script>
+                                    function input_click() {
+                                        document.getElementById("c_img_input").click();
+                                    }
+                                </script>
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="tab-pane fade" id="about">
+                            <h4> <i class="ion-ios-information"></i> About you :</h4>
+
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label for="list_info">About : Azerbaijan (Optional)</label>
+                                    <textarea class="form-control" id="list_info" rows="4" placeholder="Enter your text here" name="about_az"><?php echo $about_az?></textarea>
+                                </div>
+
                             </div>
 
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Features</label>
-                                    <div class="filter-checkbox">
-                                        <input id="check-a" type="checkbox" name="check">
-                                        <label for="check-a">Elevator in building</label>
-                                        <input id="check-b" type="checkbox" name="check">
-                                        <label for="check-b">Air Conditioned</label>
-                                        <input id="check-c" type="checkbox" name="check">
-                                        <label for="check-c">Free Wi Fi</label>
-                                        <input id="check-d" type="checkbox" name="check">
-                                        <label for="check-d">Free Parking on premises</label>
-                                        <input id="check-f" type="checkbox" name="check">
-                                        <label for="check-f">Instant Book</label>
-                                        <input id="check-e" type="checkbox" name="check">
-                                        <label for="check-e">Pet Friendly </label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Title</label>
-                                        <input type="text" class="form-control filter-input" placeholder="Title">
-                                    </div>
 
-                                    <div class="col-md-6">
-                                        <label>Icon</label>
-                                        <input type="text" class="form-control filter-input" placeholder="Icon">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="#" class="btn v7 mar-top-20">Add Facts</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="gallery">
-                        <h4><i class="ion-image"></i> Gallery :</h4>
-                        <div class="form-group">
-                            <form class="photo-upload">
                                 <div class="form-group">
-                                    <div class="add-listing__input-file-box">
-                                        <input class="add-listing__input-file" type="file" name="file" id="file">
-                                        <div class="add-listing__input-file-wrap">
-                                            <i class="ion-ios-cloud-upload"></i>
-                                            <p>Click here to upload your images</p>
-                                        </div>
-                                    </div>
+                                    <label for="list_info">About : English (Optional)</label>
+                                    <textarea class="form-control" id="list_info" rows="4" placeholder="Enter your text here" name="about_en"><?php echo $about_en?></textarea>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="add-btn">
-                            <a href="#" class="btn v8 mar-top-20">Add Images</a>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="location">
-                        <h4><i class="ion-ios-location"></i> Location/Contacts :</h4>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Select City</label>
-                                    <div class="nice-select filter-input" tabindex="0"><span class="current">Select City</span>
-                                        <ul class="list">
-                                            <li class="option selected focus">New York</li>
-                                            <li class="option">Chicago</li>
-                                            <li class="option">Las Vegas</li>
-                                            <li class="option">Los Angeles</li>
-                                            <li class="option">Austin</li>
-                                            <li class="option">Downturn</li>
-                                            <li class="option">DownturnSan Diago</li>
-                                        </ul>
-                                    </div>
-                                </div>
+
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" class="form-control filter-input" placeholder="ex. 250, Fifth Avenue...">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>State</label>
-                                    <input type="text" class="form-control filter-input" placeholder="ex. New York">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Zip Code</label>
-                                    <input type="text" class="form-control filter-input" placeholder="ex. 5858">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>
-                                        Longitude (Drag marker on the map)</label>
-                                    <input type="text" class="form-control filter-input" placeholder="Map Longitude">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>
-                                        Latitude (Drag marker on the map) </label>
-                                    <input type="text" class="form-control filter-input" placeholder="Map Latitude">
-                                </div>
-                            </div>
-                            <div class="col-md-12 no-padding">
-                                <div id="map"></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mar-top-15">
-                                    <label>Website </label>
-                                    <input type="text" class="form-control filter-input">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mar-top-15">
-                                    <label>Phone </label>
-                                    <input type="text" class="form-control filter-input">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="rooms">
-                        <h4><i class="ion-ios-location"></i> Rooms/Pricing :</h4>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Room Title</label>
-                                    <input type="text" class="form-control filter-input" placeholder="Standard family Room">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Capacity</label>
-                                    <input type="text" class="form-control filter-input" placeholder="2 persons">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Price</label>
-                                    <input type="text" class="form-control filter-input" placeholder="$180">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Room Details</label>
-                                    <input type="text" class="form-control filter-input" placeholder="Total for 1 room, 2 nights">
-                                </div>
-                            </div>
+
                             <div class="col-md-12">
+
                                 <div class="form-group">
-                                    <form class="photo-upload">
-                                        <div class="form-group">
-                                            <div class="add-listing__input-file-box">
-                                                <input class="add-listing__input-file" type="file" name="file" id="file">
-                                                <div class="add-listing__input-file-wrap">
-                                                    <i class="ion-ios-cloud-upload"></i>
-                                                    <p>Click here to upload your images</p>
-                                                </div>
+                                    <label for="list_info">About : Russian (Optional)</label>
+                                    <textarea class="form-control" id="list_info" rows="4" placeholder="Enter your text here" name="about_ru"><?php echo $about_ru?></textarea>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="tab-pane fade" id="contact">
+                            <h4><i class="ion-ios-location"></i> Location /Contacts :</h4>
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Adress in Azerbaijan (Optional)</label>
+                                        <input type="text" class="form-control filter-input" placeholder="Your Adress in Azerbaijan" name="address_az" value="<?php echo $address_az?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Adress in English (Optional)</label>
+                                        <input type="text" class="form-control filter-input" placeholder="Your Adress in English" name="address_en" value="<?php echo $address_en?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Adress in Russian (Optional)</label>
+                                        <input type="text" class="form-control filter-input" placeholder="Your Adress in Russian" name="address_ru" value="<?php echo $address_en?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Select City</label>
+                                        <select name="city_id" class="nice-select filter-input">
+
+                                            <?php foreach ($city as $item){ ?>
+                                                <option value="<?php echo $item["id"]?>">
+                                                    <?php echo $item["name_az"]?>
+                                                </option>
+                                            <?php }?>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Mobile</label>
+                                        <input type="text" class="form-control filter-input" placeholder="+994557777777" name="mobile" value="<?php echo $mobile?>">
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="lat" id="lattitude">
+                                <input type="hidden" name="lon" id="longtude">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Your Map Address (click on the map to choose your coordinate)</label>
+                                        <div id="c_map" style=" height: 400px; cursor: pointer!important;"></div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="tab-pane fade" id="social_network">
+                            <h4><i class="icofont-ui-social-link"></i>Social Networks:</h4>
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Email (Optional)</label>
+                                        <input type="text" class="form-control filter-input" placeholder="demo@gmail.com" name="email" value="<?php echo $email?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Facebook (Optional)</label>
+                                        <input type="text" class="form-control filter-input" placeholder="Facebook url" name="facebook" value="<?php echo $facebook?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Instagram link (Optional)</label>
+                                        <input type="text" class="form-control filter-input" placeholder="Instagram url" name="instagram" value="<?php echo $instagram?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label>Birth date</label>
+                                    <div id="datepicker-from" class="input-group date" >
+                                        <input class="form-control" type="text" placeholder="Select date" name="birthday" value="<?php echo $birthday?>">
+                                        <span class="input-group-addon"><i class="icofont-ui-calendar"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="margin-top: 20px">
+                                    <div class="row">
+                                        <div class="col-md-6 text-left">
+                                            <div class="res-box mar-top-10">
+                                                <input type="checkbox" tabindex="3" class="" name="remember" id="remember" <?php echo (!empty($remember)) ? "checked" : ""?>>
+                                                <label for="remember">I've read and accept <a href="terms.html">terms &amp; conditions</a></label>
                                             </div>
                                         </div>
-                                        <a href="#" class="btn v8 mar-top-15">Add Images</a>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Features</label>
-                                    <div class="filter-checkbox">
-                                        <input id="check-m" type="checkbox" name="check">
-                                        <label for="check-m">Tv inside</label>
-                                        <input id="check-n" type="checkbox" name="check">
-                                        <label for="check-n">Air Conditioned</label>
-                                        <input id="check-o" type="checkbox" name="check">
-                                        <label for="check-o">Free Wi Fi</label>
-                                        <input id="check-p" type="checkbox" name="check">
-                                        <label for="check-p">Breakfast</label>
+
+                                        <div class="col-md-6 text-right sm-left">
+                                            <button class="btn v8" type="submit">Submit</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>Title</label>
-                                        <input type="text" class="form-control filter-input" placeholder="Title">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Number</label>
-                                        <input type="text" class="form-control filter-input" placeholder="Number">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Icon</label>
-                                        <input type="text" class="form-control filter-input" placeholder="Icon">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="#" class="btn v8 mar-top-20">Add Facts</a>
-                                    </div>
-                                </div>
+
+
                             </div>
                         </div>
+
+
+
                     </div>
-                    <div class="tab-pane fade" id="open_time">
-                        <h4><i class="ion-clock"></i> Opening/Business Hours :</h4>
-                        <div class="row mar-bot-30">
-                            <div class="col-md-2">
-                                <label class="fix_spacing">Monday</label>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Opening Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Closing Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mar-bot-30">
-                            <div class="col-md-2">
-                                <label class="fix_spacing">Tuesday</label>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Opening Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Closing Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
+                </form>
 
-                        </div>
-                        <div class="row mar-bot-30">
-                            <div class="col-md-2">
-                                <label class="fix_spacing">Wednesday</label>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Opening Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Closing Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row mar-bot-30">
-                            <div class="col-md-2">
-                                <label class="fix_spacing">Thursday</label>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Opening Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Closing Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row mar-bot-30">
-                            <div class="col-md-2">
-                                <label class="fix_spacing">Friday</label>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Opening Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Closing Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row mar-bot-30">
-                            <div class="col-md-2">
-                                <label class="fix_spacing">Saturday</label>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Opening Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Closing Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row mar-bot-30">
-                            <div class="col-md-2">
-                                <label class="fix_spacing">Sunday</label>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Opening Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Closing Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4><i class="ion-clock"></i> Event Date :</h4>
-                            </div>
-                        </div>
-                        <div class="row mar-bot-30">
-                            <div class="col-sm-4 col-12">
-                                <div id="datepicker-from" class="input-group date" data-date-format="dd-mm-yyyy">
-                                    <input class="form-control" type="text" placeholder="Select date">
-                                    <span class="input-group-addon"><i class="icofont-ui-calendar"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-12">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Opening Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-12">
-                                <div class="nice-select filter-input" tabindex="0"><span class="current">Opening Time</span>
-                                    <ul class="list">
-                                        <li class="option selected focus">7.00 am</li>
-                                        <li class="option">8.00 am</li>
-                                        <li class="option">9.00 am</li>
-                                        <li class="option">10.00 am</li>
-                                        <li class="option">11.00 am</li>
-                                        <li class="option">12.00 am</li>
-                                        <li class="option">1.00 pm</li>
-                                        <li class="option">2.00 pm</li>
-                                        <li class="option">3.00 pm</li>
-                                        <li class="option">4.00 pm</li>
-                                        <li class="option">5.00 pm</li>
-                                        <li class="option">6.00 pm</li>
-                                        <li class="option">7.00 pm</li>
-                                        <li class="option">8.00 pm</li>
-                                        <li class="option">9.00 pm</li>
-                                        <li class="option">10.00 pm</li>
-                                        <li class="option">11.00 pm</li>
-                                        <li class="option">12.00 pm</li>
-                                        <li class="option">00.00 am</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="social_network">
-                        <h4><i class="icofont-ui-social-link"></i>Social Networks:</h4>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Facebook link (Optional)</label>
-                                    <input type="text" class="form-control filter-input" placeholder="Facebook url">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Pinterest (Optional)</label>
-                                    <input type="text" class="form-control filter-input" placeholder="Pinterest url">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Twitter link (Optional)</label>
-                                    <input type="text" class="form-control filter-input" placeholder="Twitter url">
-                                </div>
-                            </div>
-                            <div class="col-md-6 text-left">
-                                <div class="res-box mar-top-10">
-                                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                    <label for="remember">I've read and accept <a href="terms.html">terms &amp; conditions</a></label>
-                                </div>
-                            </div>
-                            <div class="col-md-6 text-right sm-left">
-                                <button class="btn v8" type="submit">Preview</button>
-                                <button class="btn v8" type="submit">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
 <!--Add Listing ends-->
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDopLgciSKlfdFSkZlDfBQZyPSLI1BOwxU&libraries=places"></script>
+
+<script>
+
+    //marker delete
+    var markersArray = [];
+    function clearOverlays() {
+        for (var i = 0; i < markersArray.length; i++ ) {
+            markersArray[i].setMap(null);
+        }
+        markersArray.length = 0;
+    }
+    //marker delete
+
+
+
+    //map properties
+
+    <?php if (empty($lat) || empty($lon)){ ?>
+        var librariesMapCenter = new google.maps.LatLng(40.4033692,49.8807417);
+    <?php }else{?>
+        var librariesMapCenter = new google.maps.LatLng(<?php echo $lat?>, <?php echo $lon?>);
+    <?php }?>
+    
+    var librariesMapZoom = 16;
+    var librariesMapZoomMax = 22;
+    var librariesMapZoomMin = 8;
+    var librariesMapOptions = {
+        center: librariesMapCenter,
+        zoom: librariesMapZoom,
+        maxZoom: librariesMapZoomMax,
+        minZoom: librariesMapZoomMin,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        panControl: true,
+        rotateControl: true,
+        mapTypeIds: [ 'mapStylesLibraries']
+    };
+    //map properties
+
+
+
+    //initialize google map
+    var librariesMap;
+    librariesMap = new google.maps.Map(document.getElementById("c_map"), librariesMapOptions);
+    //initialize google map
+
+
+
+    //default db marker
+    <?php if (!empty($lat) && !empty($lon)){ ?>
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(<?php echo $lat?>, <?php echo $lon?>),
+        map: librariesMap
+    });
+    markersArray.push(marker);
+    <?php }?>
+    //default db marker
+
+
+
+
+    //when clicked map marker set and push to array
+    google.maps.event.addListener(librariesMap, 'click', function(event) {
+        placeMarker(event.latLng);
+        // alert(event.latLng)
+        $("#lattitude").val(event.latLng.lat());
+        $("#longtude").val(event.latLng.lng());
+    });
+    function placeMarker(location) {
+        clearOverlays();
+        var marker = new google.maps.Marker({
+            position: location,
+            map: librariesMap
+        });
+        markersArray.push(marker);
+    }
+    //when clicked map marker set and push to array
+
+    
+</script>
