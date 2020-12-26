@@ -19,6 +19,9 @@
     <link href="<?php echo base_url("assets")?>/css/style.css" rel="stylesheet" />
     <!--color switcher css-->
     <link rel="stylesheet" href="<?php echo base_url("assets")?>/css/switcher/skin-aqua.css" media="screen" id="style-colors" />
+
+    <link rel="stylesheet" href="<?php echo base_url("assets")?>/css/c_css.css" media="screen" id="style-colors" />
+
     <!-- Document Title -->
-    <title>listagram - Directory Listing HTML Template</title>
+    <title>Even Planning</title>
 </head>

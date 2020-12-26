@@ -174,7 +174,7 @@
                                 <div class="container">
                                     <ul class="site-menu js-clone-nav d-none d-lg-block">
                                         <li class="has-children">
-                                            <a href="#">Home</a>
+                                            <a href="#">Home2</a>
                                             <ul class="dropdown">
                                                 <li><a href="home-v1.html">Home Tab</a></li>
                                                 <li><a href="home-v2.html">Home Hero</a></li>
@@ -300,7 +300,7 @@
 
                                             </ul>
                                         </li>
-                                        <li class="d-lg-none"><a class="btn v1" href="add-listing.html">Add Listing <i class="ion-plus-round"></i></a></li>
+                                        <li class="d-lg-none"><a class="btn v1" href="<?php echo base_url("become-partner")?>">Become Partner <i class="ion-plus-round"></i></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -315,6 +315,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!--mobile-menu starts -->
                 <div class="site-mobile-menu">
                     <div class="site-mobile-menu-header">
