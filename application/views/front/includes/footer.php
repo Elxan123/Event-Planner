@@ -53,7 +53,7 @@
                                     <div class="icon">
                                         <i class="ion-email"></i>
                                     </div>
-                                    <div class="text"><a href="#">info@listagram.com</a></div>
+                                    <div class="text"><a href="#">info@demo.com</a></div>
                                 </div>
                             </li>
                             <li>
@@ -81,7 +81,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2 text-center">
-                    <p>&copy; 2019 listagram. All Rights Reserved.</p>
+                    <p>&copy; 2020 . All Rights Reserved.</p>
                 </div>
             </div>
         </div>

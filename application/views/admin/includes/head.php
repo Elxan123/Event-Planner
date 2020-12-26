@@ -26,6 +26,6 @@
     <!--color switcher css-->
     <link rel="stylesheet" href="<?php echo base_url('assets') ?>/css/switcher/skin-aqua.css" media="screen" id="style-colors" />
     <!-- Document Title -->
-    <title>listagram - Directory Listing HTML Template</title>
+    <title>Directory Listing HTML Template</title>
 
 </head>

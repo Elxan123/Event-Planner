@@ -14,6 +14,9 @@ class Generalinformation extends CI_Controller{
     
     public function index()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["estab_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("estab")->row_array();
+
         $data['page_info'] = ['name' => 'dashboard'];
         $this->load->view('admin/includes/index',$data);
     }
@@ -235,10 +238,81 @@ class Generalinformation extends CI_Controller{
 
     public function calendar()
     {
-
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["estab_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("estab")->row_array();
 
         $data['page_info'] = ['name' => 'establishment/calendar/content'];
         $this->load->view('admin/includes/index',$data);
+    }
+
+    public function event_category()
+    {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["estab_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("estab")->row_array();
+
+        $data["ctg_estab"] = $this->db->select("ctg_estab.id as ctg_estab_id, event_ctg.*, event_type.*")
+            ->from("ctg_estab")
+            ->join("event_ctg", "event_ctg.id = ctg_estab.event_ctg_id ")
+            ->join("estab", "estab.user_id = ctg_estab.estab_id")
+            ->join("event_type", "event_type.id = event_ctg.type_id")
+            ->where("ctg_estab.estab_id", $this->session->userdata("user_id"))
+            ->get()->result_array();
+
+
+
+        $data['page_info'] = ['name' => 'establishment/event_category/content'];
+        $this->load->view('admin/includes/index',$data);
+    }
+
+    public function event_category_add()
+    {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["estab_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("estab")->row_array();
+
+        $data["categories"] = $this->db->select("event_ctg.*, event_type.type")
+            ->from("event_ctg")
+            ->join("event_type", "event_type.id = event_ctg.type_id")
+            ->get()
+            ->result_array();
+
+
+        $data['page_info'] = ['name' => 'establishment/event_category/add'];
+        $this->load->view('admin/includes/index',$data);
+    }
+
+    public function event_category_add_action()
+    {
+        $id = $this->session->userdata("user_id");
+
+        $category_id = $this->input->post("category_id");
+
+        if (!empty($category_id)){
+
+            if(empty($this->db->where(array("event_ctg_id " => $category_id, "estab_id " => $id))->get("ctg_estab")->result_array())){
+
+                $this->db->insert("ctg_estab", array(
+                    "estab_id" => $id,
+                    "event_ctg_id " => $category_id,
+                ));
+
+                redirect(base_url("establishment/choose-event-category"));
+
+            }else{
+                $this->session->set_flashdata("register_alert", "You cannot add the same service twice");
+                redirect(base_url("establishment/add-event-category"));
+            }
+
+        }else{
+            $this->session->set_flashdata("register_alert", "Dont empty the important fields");
+            redirect(base_url("establishment/add-event-category"));
+        }
+
+    }
+
+    public function event_category_delete($category_id)
+    {
+        $this->db->where("id", $category_id)->delete("ctg_estab");
+        redirect(base_url("establishment/choose-event-category"));
     }
     
 

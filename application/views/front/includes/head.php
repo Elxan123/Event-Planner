@@ -2,8 +2,7 @@
 <html dir="ltr" lang="en-US">
 
 
-<!-- Mirrored from demo.lion-coders.com/html/listagram/home-v6.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Dec 2020 11:08:26 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <!-- Metas -->
     <meta charset="UTF-8" />
