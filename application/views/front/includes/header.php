@@ -309,8 +309,14 @@
                                     <span class="ion-android-menu"></span>
                                 </a>
                             </div>
+
                             <div class="add-list float-right">
                                 <a class="btn v8" href="<?php echo base_url("become-partner")?>">Become Partner</a>
+                                <?php if (!isset($_SESSION['user_id'])){ ?>
+                                <a style="margin-left: 10px" href="<?php echo base_url("login")?>"><span><i class="icofont-login"></i></span> Login/Register</a>
+                                <?php }else{ ?>
+                                Hi, <?php if (isset($_SESSION['user_name'])){echo $_SESSION['user_name'];} } ?>
+
                             </div>
                         </div>
                     </div>
