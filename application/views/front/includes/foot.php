@@ -18,9 +18,11 @@
 
 
 <script src="<?php echo base_url("assets")?>/js/c_script.js"></script>
+<?php if ($page_info['name'] == 'choose_establishment_list'){ ?>
 <script src="<?php echo base_url("assets")?>/js/estabfilter.js"></script>
-<?php if ($page_info['name'] = 'choose_services_organizers_list'){ ?>
-<!--<script src="--><?php //echo base_url("assets")?><!--/js/myfilter.js"></script>-->
+<?php } ?>
+<?php if ($page_info['name'] == 'choose_services_organizers_list'){ ?>
+<script src="<?php echo base_url("assets")?>/js/myfilter.js"></script>
 <?php } ?>
 <!--Scripts ends-->
 
