@@ -21,13 +21,13 @@ class EventOrganize extends CI_Controller{
         $data['ctgs'] = $this->db->select('event_ctg.id, event_ctg.name_en as name, event_type.type')->
             from('event_ctg')->join('event_type','event_type.id = event_ctg.type_id','left')->
             get()->result_array();
-        $data['page_info'] = ['name' => 'choose_services_organizers_list'];
         if ($this->input->get('city')){
             $data['selectedCity'] = $this->input->get('city');
         }
         if ($this->input->get('ctg')){
             $data['selectedCtg'] = $this->input->get('ctg');
         }
+        $data['page_info'] = ['name' => 'choose_services_organizers_list'];
         $this->load->view('front/includes/index',$data);
     }
 
@@ -53,7 +53,7 @@ class EventOrganize extends CI_Controller{
             $query_string_having = $query_string_having.' and '.$amenity_string;
         }
 
-        $query_string_where = 'true ';
+        $query_string_where = 'providers.status = 1 ';
         if (!empty($city)){
             $query_string_where = $query_string_where.'and (providers.city_id = '.$city.')';
         }
@@ -82,6 +82,66 @@ class EventOrganize extends CI_Controller{
 
         print_r(json_encode($providers));
     }
+
+
+    public function establishments()
+    {
+        $data['cities'] = $this->db->select('city.id, city.name_en as name')->get('city')->result_array();
+        $data['ctgs'] = $this->db->select('event_ctg.id, event_ctg.name_en as name, event_type.type')->
+        from('event_ctg')->join('event_type','event_type.id = event_ctg.type_id','left')->
+        get()->result_array();
+        if ($this->input->get('city')){
+            $data['selectedCity'] = $this->input->get('city');
+        }
+        if ($this->input->get('ctg')){
+            $data['selectedCtg'] = $this->input->get('ctg');
+        }
+        $data['page_info'] = ['name' => 'choose_establishment_list'];
+        $this->load->view('front/includes/index',$data);
+    }
+
+    public function estabs_load()
+    {
+        $city = $this->input->get('city',true);
+        $ctg = $this->input->get('ctg',true);
+        $search = $this->input->get('search',true);
+
+        //Make string for query
+        $search_cafe = $this->search_maker($search, 'estab.name');
+        $search_category = $this->search_maker($search, "estab.address_en");
+
+        $query_string_having = 'true ';
+        if (!empty($search_cafe)){
+            $query_string_having = $query_string_having.' and ('.$search_cafe.' or '.$search_category.")";
+        }
+
+        $query_string_where = 'estab.status = 1 ';
+        if (!empty($city)){
+            $query_string_where = $query_string_where.'and (estab.city_id = '.$city.')';
+        }
+        if (!empty($ctg)){
+            $query_string_where = $query_string_where.'and (ctg_estab.event_ctg_id = '.$ctg.')';
+        }
+
+
+        $providers = $this->db->query("
+        SELECT DISTINCT estab.user_id, estab.img, users.name, users.surname, city.name_en as city, users.mobile, estab.facebook, estab.instagram, estab.name as estab, estab.address_en as address
+        FROM estab 
+        INNER JOIN users 
+        ON users.id = estab.user_id
+        LEFT JOIN city
+        ON city.id = estab.city_id
+        RIGHT JOIN ctg_estab 
+        ON ctg_estab.estab_id = estab.user_id
+        WHERE $query_string_where
+        group by estab.user_id
+		having $query_string_having
+        ")->result_array();
+
+        print_r(json_encode($providers));
+    }
+
+
 
     private function string_maker($array,$column){
         if (!empty($array)) {
@@ -115,11 +175,6 @@ class EventOrganize extends CI_Controller{
         $string = "(sum(case when ".$column." LIKE '%".$search."%' then 1 else 0 end) > 0)";
     }
 
-    public function establishments()
-    {
-        $data['page_info'] = ['name' => 'choose_establishment_list'];
-        $this->load->view('front/includes/index',$data);
-    }
 
    
 
