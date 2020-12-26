@@ -40,3 +40,11 @@ $route['event-organize'] = "EventOrganize/index";
 $route['event-organize-services'] = "EventOrganize/services";
 $route['event-organize-establishments'] = "EventOrganize/establishments";
 
+
+$route['provider-single/(:any)'] = "ProviderSingle/index/$1";
+$route['provider-single-register/(:any)'] = "ProviderSingle/register/$1";
+$route['provider-single-register-action/(:any)'] = "ProviderSingle/register_action/$1";
+
+$route['register-success'] = "ProviderSingle/success";
+
+
