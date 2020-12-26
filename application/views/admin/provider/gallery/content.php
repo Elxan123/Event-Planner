@@ -12,9 +12,9 @@
                     <div class="db-add-listing">
 
                         <div class="col-md-12">
-                            <form action   =   "<?php echo base_url("establishment/gallery-add")?>"
-                                  data-url =   "<?php echo base_url("establishment/gallery-add")?>"
-                                  data-refreshurl = "<?php echo base_url("establishment/gallery-refresh")?>"
+                            <form action   =   "<?php echo base_url("providers/gallery-add")?>"
+                                  data-url =   "<?php echo base_url("providers/gallery-add")?>"
+                                  data-refreshurl = "<?php echo base_url("providers/gallery-refresh")?>"
                                   class="dropzone c_dropzone"
                                   enctype="multipart/form-data"
                                   id="dropzone">
@@ -28,7 +28,7 @@
 
                             <br>
 
-                            <table class="table table-bordered datatable" id="datatable_sortable" >
+                            <table class="table table-bordered datatable" id="datatable_sortable">
                                 <thead>
                                 <th data-orderable="false"><div>Picture Name</div></th>
                                 <th data-orderable="false" style="text-align: center; "><div>Picture</div></th>
@@ -37,7 +37,7 @@
 
                                 <tbody id="c_gallery_tbody">
 
-                                    <?php $this->load->view("admin/establishment/gallery/refresh_page")?>
+                                    <?php $this->load->view("admin/provider/gallery/refresh_page")?>
 
                                 </tbody>
 

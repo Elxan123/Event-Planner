@@ -85,7 +85,7 @@ class Bepartner extends CI_Controller{
                 "about_ru" => $about_ru,
                 "instagram" => $instagram,
                 "facebook" => $facebook,
-                "status" => 1,
+                "status" => 0,
             ));
             $this->session->unset_userdata("form_data");
             redirect(base_url(""));
@@ -179,7 +179,7 @@ class Bepartner extends CI_Controller{
 
 
             $this->db->insert("users", array(
-                "user_type_id" => 2,
+                "user_type_id" => 3,
                 "password" => $password,
                 "name" => $name,
                 "surname" => $surname,
@@ -197,7 +197,7 @@ class Bepartner extends CI_Controller{
                 "about_ru" => $about_ru,
                 "instagram" => $instagram,
                 "facebook" => $facebook,
-                "status" => 1,
+                "status" => 0,
 
                 "name" => $estab_name,
 

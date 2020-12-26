@@ -11,10 +11,27 @@ $route['become-partner-establishment-submit'] = "Bepartner/establishment_registe
 $route['establishment/general-info'] = "admin/establishment/Generalinformation/general_information";
 $route['establishment/general-info-update'] = "admin/establishment/Generalinformation/general_information_update";
 
-$route['establishment/vendors'] = "admin/establishment/Generalinformation/vendors";
 
 $route['establishment/gallery'] = "admin/establishment/Generalinformation/gallery";
 $route['establishment/gallery-add'] = "admin/establishment/Generalinformation/gallery_add";
-$route['establishment/gallery-delete'] = "admin/establishment/Generalinformation/gallery_delete";
+$route['establishment/gallery-delete/(:any)'] = "admin/establishment/Generalinformation/gallery_delete/$1";
+$route['establishment/gallery-refresh'] = "admin/establishment/Generalinformation/gallery_refresh_page";
 
 $route['establishment/calendar'] = "admin/establishment/Generalinformation/calendar";
+
+
+
+
+
+$route['providers/general-info'] = "admin/provider/GeneralinformationProvider/general_information";
+$route['providers/general-info-update'] = "admin/provider/GeneralinformationProvider/general_information_update";
+
+$route['providers/choose-service'] = "admin/provider/GeneralinformationProvider/services";
+$route['providers/add-service'] = "admin/provider/GeneralinformationProvider/services_add";
+$route['providers/add-service-action'] = "admin/provider/GeneralinformationProvider/services_add_action";
+$route['providers/delete-service/(:any)'] = "admin/provider/GeneralinformationProvider/services_delete/$1";
+
+$route['providers/gallery'] = "admin/provider/GeneralinformationProvider/gallery";
+$route['providers/gallery-add'] = "admin/provider/GeneralinformationProvider/gallery_add";
+$route['providers/gallery-delete/(:any)'] = "admin/provider/GeneralinformationProvider/gallery_delete/$1";
+$route['providers/gallery-refresh'] = "admin/provider/GeneralinformationProvider/gallery_refresh_page";
