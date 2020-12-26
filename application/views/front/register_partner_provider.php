@@ -181,7 +181,7 @@
 
                                             <?php foreach ($city as $item){ ?>
                                                 <option value="<?php echo $item["id"]?>">
-                                                    <?php echo $item["name_az"]?>
+                                                    <?php echo $item["name_en"]?>
                                                 </option>
                                             <?php }?>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 26 Ara 2020, 14:48:25
+-- Üretim Zamanı: 26 Ara 2020, 18:13:18
 -- Sunucu sürümü: 10.4.11-MariaDB
 -- PHP Sürümü: 7.4.3
 
@@ -91,6 +91,14 @@ CREATE TABLE `ctg_provider` (
   `event_ctg_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Tablo döküm verisi `ctg_provider`
+--
+
+INSERT INTO `ctg_provider` (`id`, `provider_id`, `event_ctg_id`) VALUES
+(1, 2, 1),
+(2, 2, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -156,9 +164,20 @@ CREATE TABLE `events` (
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `estab_id` int(11) NOT NULL,
-  `date` datetime NOT NULL,
+  `event_start` date NOT NULL,
+  `event_end` date NOT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `events`
+--
+
+INSERT INTO `events` (`id`, `customer_id`, `provider_id`, `title`, `description`, `estab_id`, `event_start`, `event_end`, `status`) VALUES
+(7, 10, 2, 'adasd', 'asdasdasd', 0, '2020-12-09', '2020-12-22', 0),
+(8, 10, 2, 'adasd', 'asdasdasd', 0, '2020-12-09', '2020-12-22', 0),
+(9, 10, 2, 'adasdad1231231', 'asdasdasd', 0, '2020-12-09', '2020-12-22', 0),
+(10, 10, 2, '1221321', '123213', 0, '2020-12-16', '2020-12-15', 0);
 
 -- --------------------------------------------------------
 
@@ -226,6 +245,19 @@ CREATE TABLE `gallery_provider` (
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Tablo döküm verisi `gallery_provider`
+--
+
+INSERT INTO `gallery_provider` (`id`, `provider_id`, `img`) VALUES
+(2, 9, 'default.png'),
+(3, 2, '5d5bda405449c--1-1.jpg'),
+(4, 2, '5d5bda405449c2.jpg'),
+(5, 2, '5de91909eafa87.jpg'),
+(6, 2, '73.png'),
+(7, 2, '450px-azeri-manat-symbol-svg4.png'),
+(8, 2, '614.png');
+
 -- --------------------------------------------------------
 
 --
@@ -249,6 +281,7 @@ CREATE TABLE `providers` (
 --
 
 INSERT INTO `providers` (`user_id`, `city_id`, `img`, `about_az`, `about_en`, `about_ru`, `instagram`, `facebook`, `status`) VALUES
+(2, 3, 'all-kinds-electronic-equipment-testing-instruments-electronic-laboratory-laboratory-electronic-equipment-device-134261658.jpg', 'sdas', 'asda', 'asda', 'asdasd', 'adad', 1),
 (9, 3, 'yenilik.jpg', 'Provider Provider', 'ProviderProvider', 'ProviderProvider', '', '', 1);
 
 -- --------------------------------------------------------
@@ -272,7 +305,9 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `name_az`, `name_en`, `name_ru`, `desc_az`, `desc_en`, `desc_ru`) VALUES
-(1, 'Tort', 'Paste', 'Paste', 'Tort', 'Paste dsad', 'Paste daddd');
+(1, 'Tort', 'Paste', 'Paste', 'Torta', 'Paste dsad asdsa jaskas kjsadh jsdhj', 'Paste daddd'),
+(3, 'sdd', 'asda', 'sdasd', 'asd', 'sdas', 'ddassd'),
+(4, 'da', 'dasd', 'asd', 'asd', 'sdad', 'das');
 
 -- --------------------------------------------------------
 
@@ -285,6 +320,20 @@ CREATE TABLE `service_event` (
   `service_provider_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `service_event`
+--
+
+INSERT INTO `service_event` (`id`, `service_provider_id`, `event_id`) VALUES
+(1, 1, 7),
+(2, 2, 7),
+(3, 1, 8),
+(4, 2, 8),
+(5, 1, 9),
+(6, 3, 9),
+(7, 2, 10),
+(8, 3, 10);
 
 -- --------------------------------------------------------
 
@@ -304,7 +353,9 @@ CREATE TABLE `service_provider` (
 --
 
 INSERT INTO `service_provider` (`id`, `service_id`, `provider_id`, `price`) VALUES
-(1, 1, 9, 344);
+(1, 1, 9, 344),
+(2, 3, 9, 100),
+(3, 4, 9, 123);
 
 -- --------------------------------------------------------
 
@@ -329,7 +380,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user_type_id`, `name`, `surname`, `email`, `mobile`, `password`, `birthday`) VALUES
 (1, 1, 'admin', 'admin', 'admin@admin.com', '0550000000', 'admin', '2020-12-02'),
-(2, 2, 'Provider', 'Provider', 'Provider@provider.com', '0500000000', 'provider', '2020-12-01'),
+(2, 2, 'Provider1', 'Provider', 'Provider@provider.com', '0500000000', 'provider', '2020-12-01'),
 (3, 3, 'Name', 'Surname', 'Estab@estab.com', '1111', 'estab', '2020-12-16'),
 (4, 4, 'User', 'User', 'user@user.com', '0990000000', 'user', '2020-12-01'),
 (5, 3, 'adad', 'asds', 'asd', '12321313', 'asdas', '2020-12-24'),
@@ -490,13 +541,13 @@ ALTER TABLE `ctg_estab`
 -- Tablo için AUTO_INCREMENT değeri `ctg_provider`
 --
 ALTER TABLE `ctg_provider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `event_ctg`
@@ -520,25 +571,25 @@ ALTER TABLE `gallery_estab`
 -- Tablo için AUTO_INCREMENT değeri `gallery_provider`
 --
 ALTER TABLE `gallery_provider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `service_event`
 --
 ALTER TABLE `service_event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `service_provider`
 --
 ALTER TABLE `service_provider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `users`
