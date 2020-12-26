@@ -36,7 +36,7 @@
 
 
                         <div class="col-md-6">
-                            <a href="<?php echo base_url("event-organize-services")?>">
+                            <a href="<?php echo base_url("event-organize-services").$_SESSION['filter_link']?>">
                                 <div class="work-process-content v1 text-center">
                                     <div class="process-icon v1">
                                         <img src="<?php echo base_url("assets/")?>images/others/1.png" alt="...">
@@ -52,7 +52,7 @@
 
 
                         <div class="col-md-6">
-                            <a href="<?php echo base_url("event-organize-establishments")?>">
+                            <a href="<?php echo base_url("event-organize-establishments").$_SESSION['filter_link']?>">
                                 <div class="work-process-content v1 text-center">
                                     <div class="process-icon v1">
                                         <img  src="<?php echo base_url("assets/")?>images/others/3.png" alt="...">
