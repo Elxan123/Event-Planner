@@ -12,6 +12,7 @@ class Appeals extends CI_Controller{
 
     public function estab()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['appeals'] = $this->db->select('users.id, users.name, users.surname, users.email, users.mobile, estab.img, estab.name as estab_name, estab.status')->
             from('users')->where('user_type_id',3)
             ->join('estab','estab.user_id = users.id','inner')
@@ -23,6 +24,7 @@ class Appeals extends CI_Controller{
 
     public function provider()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['appeals'] = $this->db->select('users.id, users.name, users.surname, users.email, users.mobile, providers.img, providers.status')->
         from('users')->where('user_type_id',2)
             ->join('providers','providers.user_id = users.id','inner')

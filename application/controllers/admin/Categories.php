@@ -12,6 +12,7 @@ class Categories extends CI_Controller{
 
     public function index()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['ctgs'] = $this->db->select('event_ctg.id, event_ctg.name_en as name,event_ctg.img,event_type.type')->
             from('event_ctg')->join('event_type','event_ctg.type_id = event_type.id','left')->order_by('id','DESC')->
             get()->result_array();
@@ -21,6 +22,7 @@ class Categories extends CI_Controller{
 
     public function add()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['types'] = $this->db->select('event_type.id, event_type.type')->
             get('event_type')->result_array();
         $data['page_info'] = ['name' => 'categories/add'];
@@ -74,6 +76,7 @@ class Categories extends CI_Controller{
 
     public function update($id)
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['types'] = $this->db->select('event_type.id, event_type.type')->
         get('event_type')->result_array();
         $data['ctg'] = $this->db->

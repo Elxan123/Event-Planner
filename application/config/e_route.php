@@ -35,6 +35,18 @@ $route['service_update/(:any)'] = 'admin/Services/update/$1';
 $route['service_update_act/(:any)'] = 'admin/Services/update_act/$1';
 $route['service_delete/(:any)'] = 'admin/Services/delete/$1';
 
+//Admin Events
+$route['customer-events'] = 'admin/Events/customer';
+$route['provider-events'] = 'admin/Events/provider';
+$route['estab-events'] = 'admin/Events/estab';
+
+$route['estab-choose/(:any)'] = 'admin/Events/estab_choose/$1';
+
+$route['event_approve/(:any)'] = 'admin/Events/approve/$1';
+$route['event_reject/(:any)'] = 'admin/Events/reject/$1';
+
+
+
 //Appeals
 $route['estab_approve'] = 'admin/Appeals/estab';
 $route['provider_approve'] = 'admin/Appeals/provider';
@@ -44,3 +56,5 @@ $route['reject_appeal/(:any)/(:any)'] = 'admin/Appeals/reject/$1/$2';
 //Filter
 $route['services_load'] = 'EventOrganize/services_load';
 $route['estabs_load'] = 'EventOrganize/estabs_load';
+
+

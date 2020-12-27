@@ -12,6 +12,7 @@ class Cities extends CI_Controller{
 
     public function index()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['cities'] = $this->db->select('city.id, city.name_en as name')->
             from('city')->order_by('id','DESC')->
             get()->result_array();
@@ -21,6 +22,7 @@ class Cities extends CI_Controller{
 
     public function add()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['page_info'] = ['name' => 'cities/add'];
         $this->load->view('admin/includes/index',$data);
     }
@@ -48,7 +50,7 @@ class Cities extends CI_Controller{
 
     public function update($id)
     {
-
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['city'] = $this->db->
         where('id',$id)->get('city')->row_array();
         $data['page_info'] = ['name' => 'cities/update'];
