@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 27 Ara 2020, 11:58:43
+-- Üretim Zamanı: 27 Ara 2020, 12:47:22
 -- Sunucu sürümü: 10.4.11-MariaDB
 -- PHP Sürümü: 7.4.3
 
@@ -181,17 +181,6 @@ CREATE TABLE `events` (
   `event_end` date NOT NULL,
   `estab_status` tinyint(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Tablo döküm verisi `events`
---
-
-INSERT INTO `events` (`id`, `customer_id`, `provider_id`, `provider_status`, `title`, `description`, `estab_id`, `event_start`, `event_end`, `estab_status`) VALUES
-(7, 10, 2, 0, 'adasd', 'asdasdasd', 0, '2020-12-09', '2020-12-22', 0),
-(8, 10, 2, 0, 'adasd', 'asdasdasd', 0, '2020-12-09', '2020-12-22', 0),
-(9, 10, 2, 0, 'adasdad1231231', 'asdasdasd', 0, '2020-12-09', '2020-12-22', 0),
-(10, 10, 2, 0, '1221321', '123213', 3, '2020-12-16', '2020-12-15', 0),
-(11, 10, 0, 0, 'asdas', 'asadad', 3, '2020-12-29', '2020-12-22', 0);
 
 -- --------------------------------------------------------
 
@@ -427,17 +416,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_type_id`, `name`, `surname`, `email`, `mobile`, `password`, `birthday`) VALUES
-(1, 1, 'admin', 'admin', 'admin@admin.com', '0550000000', 'admin', '2020-12-02'),
-(10, 4, 'Elxan', 'Aslanov', 'elxan@elxan.com', '994555555', '123123', '0000-00-00'),
-(11, 2, 'Jhon', 'Miles', 'Provider1@provider.com', '+994554542785', 'admin123', '2000-06-21'),
-(12, 2, 'Andy ', 'Francis', 'Provider2@provider.com', '+994554542785', 'admin123', '2000-06-21'),
-(13, 2, 'Leo', 'Daniel', 'Provider3@provider.com', '+994554542785', 'admin123', '2000-06-21'),
-(14, 2, 'Jhon', 'Miles', 'Provider4@provider.com', '+994554542785', 'admin123', '2000-06-21'),
-(15, 2, 'Jhon', 'Miles', 'Provider5@provider.com', '+994554542785', 'admin123', '2000-06-21'),
-(16, 3, 'Lisa', 'Fletcher', 'estab1@estab.com', '+994553457635', 'admin123', '1986-07-16'),
-(17, 3, 'Mario', 'Fletcher', 'estab2@estab.com', '+994553457635', 'admin123', '1986-07-16'),
-(18, 3, 'Vernon', 'norris', 'estab3@estab.com', '+994553457635', 'admin123', '1986-07-16'),
-(19, 4, 'Pedro', 'Daniel', 'user@user.com', '+994558764532', 'user', '2020-12-02');
+(1, 1, 'admin', 'admin', 'admin@admin.com', '0550000000', '21232f297a57a5a743894a0e4a801fc3', '2020-12-02'),
+(10, 4, 'Elxan', 'Aslanov', 'elxan@elxan.com', '994555555', '4297f44b13955235245b2497399d7a93', '0000-00-00'),
+(11, 2, 'Jhon', 'Miles', 'Provider1@provider.com', '+994554542785', '0192023a7bbd73250516f069df18b500', '2000-06-21'),
+(12, 2, 'Andy ', 'Francis', 'Provider2@provider.com', '+994554542785', '0192023a7bbd73250516f069df18b500', '2000-06-21'),
+(13, 2, 'Leo', 'Daniel', 'Provider3@provider.com', '+994554542785', '0192023a7bbd73250516f069df18b500', '2000-06-21'),
+(14, 2, 'Jhon', 'Miles', 'Provider4@provider.com', '+994554542785', '0192023a7bbd73250516f069df18b500', '2000-06-21'),
+(15, 2, 'Jhon', 'Miles', 'Provider5@provider.com', '+994554542785', '0192023a7bbd73250516f069df18b500', '2000-06-21'),
+(16, 3, 'Lisa', 'Fletcher', 'estab1@estab.com', '+994553457635', '0192023a7bbd73250516f069df18b500', '1986-07-16'),
+(17, 3, 'Mario', 'Fletcher', 'estab2@estab.com', '+994553457635', '0192023a7bbd73250516f069df18b500', '1986-07-16'),
+(18, 3, 'Vernon', 'norris', 'estab3@estab.com', '+994553457635', '0192023a7bbd73250516f069df18b500', '1986-07-16'),
+(19, 4, 'Pedro', 'Daniel', 'user@user.com', '+994558764532', 'ee11cbb19052e40b07aac0ca060c23ee', '2020-12-02');
 
 --
 -- Dökümü yapılmış tablolar için indeksler

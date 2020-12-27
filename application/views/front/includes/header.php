@@ -21,6 +21,10 @@
                                         </li>
 
                                         <li style="font-size: 14px">
+                                            <a href="<?php echo base_url("event-organize")?>">Organize an Events</a>
+                                        </li>
+
+                                        <li style="font-size: 14px">
                                             <a href="<?php echo base_url("event-organize-services")?>">Service Providers</a>
                                         </li>
 
@@ -28,9 +32,7 @@
                                             <a href="<?php echo base_url("event-organize-establishments")?>">Establishment</a>
                                         </li>
 
-                                        <li style="font-size: 14px">
-                                            <a href="<?php echo base_url("")?>">Events</a>
-                                        </li>
+
 
                                         <?php if (isset($_SESSION['user_id'])){ ?>
                                             <li class="has-children" style="font-size: 14px">
@@ -100,15 +102,15 @@
                                         </li>
 
                                         <li style="font-size: 14px">
+                                            <a href="<?php echo base_url("event-organize")?>">Organize an Events</a>
+                                        </li>
+
+                                        <li style="font-size: 14px">
                                             <a href="<?php echo base_url("event-organize-services")?>">Service Providers</a>
                                         </li>
 
                                         <li style="font-size: 14px">
                                             <a href="<?php echo base_url("event-organize-establishments")?>">Establishment</a>
-                                        </li>
-
-                                        <li style="font-size: 14px">
-                                            <a href="<?php echo base_url("")?>">Events</a>
                                         </li>
 
                                         <?php if (isset($_SESSION['user_id'])){ ?>
