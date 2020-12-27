@@ -28,8 +28,6 @@ echo base_url("uploads/establishments/$gl[img]")?>)">
                             <div class="list-details-btn text-right sm-left">
                                 <div class="save-btn">
 
-                                    <?php $this->session->set_userdata("estabch_event", 10)?>
-
                                     <?php if (!empty($this->session->userdata("estabch_event")) && $this->session->userdata("user_type") == 2) { ?>
 
                                         <a href="<?php echo base_url("choose-establishment-for-provider/$estab_id")?>" class="btn v3 white"><i class="ion-ios-briefcase"></i>
