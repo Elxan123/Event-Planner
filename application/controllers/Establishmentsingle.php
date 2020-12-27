@@ -92,5 +92,14 @@ class Establishmentsingle extends CI_Controller{
         $this->load->view('front/includes/index',$data);
     }
 
-
+    public function choose_for_provider($estab_id)
+    {
+        $this->db->where("id", $this->session->userdata("estabch_event"))->update("events", array(
+            "estab_id" => $estab_id
+        ));
+        $this->session->set_flashdata("suc", "Successfully choosed");
+        redirect(base_url("provider-events"));
+    }
+    
+    
 }

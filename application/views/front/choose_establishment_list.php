@@ -4,13 +4,13 @@
         <div class="row align-items-center  pad-top-80">
             <div class="col-md-6 col-12">
                 <div class="breadcrumb-menu">
-                    <h2 class="page-title">Listings</h2>
+                    <h2 class="page-title">Establishment Listings</h2>
                 </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="breadcrumb-menu text-right sm-left">
                     <ul>
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
                         <li id="url" data-url="<?php echo base_url(); ?>"><a href="#">Listings</a></li>
                     </ul>
                 </div>
