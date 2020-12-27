@@ -1,4 +1,4 @@
-<div class="breadcrumb-section" style="background-image: url(<?php echo base_url("assets/")?>images/breadcrumb/breadcrumb-6.jpg)">
+<div class="breadcrumb-section" style="background-position: center;background-image: url(http://localhost/Event-Planner/assets/images/breadcrumb/breadcrumb-1.jpg);background-size: cover;">
     <div class="overlay op-1"></div>
     <div class="container">
         <div class="row align-items-center  pad-top-80">
