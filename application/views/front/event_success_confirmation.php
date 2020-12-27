@@ -7,6 +7,7 @@
                     <i class="ion-android-checkmark-circle"></i>
                     <h2 class="margin-top-30">Thanks you!</h2>
                     <p>You event will be activated soon</p>
+                    <a href="<?php echo base_url("dashboard")?>" class="button margin-top-30">Go Dashboard to see progress</a>
                     <a href="<?php echo base_url("")?>" class="button margin-top-30">Go Home Page</a>
                 </div>
             </div>
