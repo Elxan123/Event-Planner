@@ -12,6 +12,7 @@ class Services extends CI_Controller{
 
     public function index()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['services'] = $this->db->select('services.id, services.name_en as name')->
             from('services')->order_by('id','DESC')->
             get()->result_array();
@@ -21,6 +22,7 @@ class Services extends CI_Controller{
 
     public function add()
     {
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['page_info'] = ['name' => 'services/add'];
         $this->load->view('admin/includes/index',$data);
     }
@@ -54,7 +56,7 @@ class Services extends CI_Controller{
 
     public function update($id)
     {
-
+        $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
         $data['service'] = $this->db->
         where('id',$id)->get('services')->row_array();
         $data['page_info'] = ['name' => 'services/update'];
