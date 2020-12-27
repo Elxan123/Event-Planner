@@ -1,5 +1,5 @@
 <!--fullwidth Map starts-->
-<div class="contact-map v2">
+<div class="contact-map v2" style="background-image: url(https://www.jotform.com/blog/wp-content/uploads/2019/12/Event-planning-guide-illustration-featured.png);background-size: cover;">
     <div class="container-fluid no-pad-lr">
         <div class="row">
             <div class="col-md-12 no-padding">
@@ -53,10 +53,10 @@
         <div class="row">
             <?php foreach ($ctgs as $item){ ?>
             <div class="col-md-4 col-sm-6 col-12">
-                <a href="<?php echo base_url("event-organize?ctg=".$item['id'])?>">
-                    <div class="popular-catagory-content v2">
-                        <div class="popular-catagory-img">
-                            <img src="<?php echo base_url("uploads/event_categories/".$item['img'])?>" alt="..." class="img_fluid">
+                <a href="<?php echo base_url("event-organize?ctg=".$item['id'])?>" class="c_100">
+                    <div class="popular-catagory-content v2 c_100">
+                        <div class="popular-catagory-img c_100">
+                            <img src="<?php echo base_url("uploads/event_categories/".$item['img'])?>" alt="..." class="img_fluid c_100">
                             <div class="overlay op-5"></div>
                         </div>
                         <div class="cat-content">
@@ -83,8 +83,8 @@
                     <div class="swiper-wrapper">
                         <?php foreach ($estabs as $item){ ?>
                         <div class="swiper-slide trending-place-item">
-                            <div class="trending-img">
-                                <img src="<?php echo base_url("uploads/establishments/".$item['img'])?>" alt="#">
+                            <div class="trending-img" style="height: 250px">
+                                <img src="<?php echo base_url("uploads/establishments/".$item['img'])?>" alt="#" style="height: 100%!important">
                                 <span class="trending-rating-green">7</span>
                                 <span class="save-btn"><i class="icofont-heart"></i></span>
                             </div>
