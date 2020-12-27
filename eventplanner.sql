@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 27 Ara 2020, 12:47:22
+-- Üretim Zamanı: 27 Ara 2020, 13:44:15
 -- Sunucu sürümü: 10.4.11-MariaDB
 -- PHP Sürümü: 7.4.3
 
@@ -128,7 +128,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`user_id`) VALUES
-(10);
+(10),
+(19);
 
 -- --------------------------------------------------------
 
@@ -181,6 +182,18 @@ CREATE TABLE `events` (
   `event_end` date NOT NULL,
   `estab_status` tinyint(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `events`
+--
+
+INSERT INTO `events` (`id`, `customer_id`, `provider_id`, `provider_status`, `title`, `description`, `estab_id`, `event_start`, `event_end`, `estab_status`) VALUES
+(20, 19, 11, 0, 'Event Title Demo 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, \r\npulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. \r\nDonec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, \r\nin pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent\r\nper conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut \r\nvestibulum. Maecenas ipsum lacus, lacinia quis posuere ut, pulvinar vitae dolor.\r\nInteger eu nibh at nisi ullamcorper sagittis id vel leo. Integer feugiat \r\nfaucibus libero, at maximus nisl suscipit posuere. Morbi nec enim nunc. \r\nPhasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis. \r\nCras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus, \r\nnon dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.', 0, '2020-12-16', '2020-12-24', 0),
+(21, 19, 11, 0, 'Event Title Demo 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, \r\npulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. \r\nDonec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, \r\nin pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent\r\nper conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut \r\nvestibulum. Maecenas ipsum lacus, lacinia quis posuere ut, pulvinar vitae dolor.\r\nInteger eu nibh at nisi ullamcorper sagittis id vel leo. Integer feugiat \r\nfaucibus libero, at maximus nisl suscipit posuere. Morbi nec enim nunc. \r\nPhasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis. \r\nCras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus, \r\nnon dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.', 0, '2020-12-07', '2020-12-24', 0),
+(22, 19, 11, 0, 'Event Title Demo 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, \r\npulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. \r\nDonec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, \r\nin pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent\r\nper conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut \r\nvestibulum. Maecenas ipsum lacus, lacinia quis posuere ut, pulvinar vitae dolor.\r\nInteger eu nibh at nisi ullamcorper sagittis id vel leo. Integer feugiat \r\nfaucibus libero, at maximus nisl suscipit posuere. Morbi nec enim nunc. \r\nPhasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis. \r\nCras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus, \r\nnon dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.', 0, '2020-12-07', '2020-12-24', 0),
+(23, 19, 0, 0, 'Event Demo 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, \r\npulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. \r\nDonec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, \r\nin pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent\r\nper conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut \r\nvestibulum. Maecenas ipsum lacus, lacinia quis posuere ut, pulvinar vitae dolor.\r\nInteger eu nibh at nisi ullamcorper sagittis id vel leo. Integer feugiat \r\nfaucibus libero, at maximus nisl suscipit posuere. Morbi nec enim nunc. \r\nPhasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis. \r\nCras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus, \r\nnon dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.', 17, '2020-11-30', '2020-12-16', 0),
+(24, 19, 0, 0, 'Event Demo 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, \r\npulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. \r\nDonec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, \r\nin pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent\r\nper conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut \r\nvestibulum. Maecenas ipsum lacus, lacinia quis posuere ut, pulvinar vitae dolor.\r\nInteger eu nibh at nisi ullamcorper sagittis id vel leo. Integer feugiat \r\nfaucibus libero, at maximus nisl suscipit posuere. Morbi nec enim nunc. \r\nPhasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis. \r\nCras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus, \r\nnon dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.', 17, '2020-12-08', '2020-12-30', 0),
+(25, 19, 0, 0, 'Event Demo 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, \r\npulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. \r\nDonec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, \r\nin pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent\r\nper conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut \r\nvestibulum. Maecenas ipsum lacus, lacinia quis posuere ut, pulvinar vitae dolor.\r\nInteger eu nibh at nisi ullamcorper sagittis id vel leo. Integer feugiat \r\nfaucibus libero, at maximus nisl suscipit posuere. Morbi nec enim nunc. \r\nPhasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis. \r\nCras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus, \r\nnon dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.', 17, '2020-12-08', '2020-12-30', 0);
 
 -- --------------------------------------------------------
 
@@ -369,6 +382,24 @@ CREATE TABLE `service_event` (
   `event_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Tablo döküm verisi `service_event`
+--
+
+INSERT INTO `service_event` (`id`, `service_provider_id`, `event_id`) VALUES
+(9, 4, 20),
+(10, 5, 20),
+(11, 7, 20),
+(12, 8, 20),
+(13, 4, 21),
+(14, 5, 21),
+(15, 6, 21),
+(16, 7, 21),
+(17, 8, 21),
+(18, 9, 21),
+(19, 6, 22),
+(20, 9, 22);
+
 -- --------------------------------------------------------
 
 --
@@ -471,6 +502,7 @@ ALTER TABLE `ctg_provider`
 -- Tablo için indeksler `customer`
 --
 ALTER TABLE `customer`
+  ADD PRIMARY KEY (`user_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -585,7 +617,7 @@ ALTER TABLE `ctg_provider`
 -- Tablo için AUTO_INCREMENT değeri `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `event_ctg`
@@ -621,7 +653,7 @@ ALTER TABLE `services`
 -- Tablo için AUTO_INCREMENT değeri `service_event`
 --
 ALTER TABLE `service_event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `service_provider`
