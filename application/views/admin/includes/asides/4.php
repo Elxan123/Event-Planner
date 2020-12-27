@@ -1,6 +1,6 @@
 <!--User's Panel-->
 <li>
-    <a class="active" href="db.html">
+    <a class="active" href="<?php echo base_url("dashboard")?>">
         <i class="ion-ios-gear-outline"></i>Dashboard
     </a>
 </li>
