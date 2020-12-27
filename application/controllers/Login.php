@@ -34,7 +34,7 @@ class Login extends CI_Controller{
         if (!empty($email) and !empty($pass)){
             $data = [
                 'email' => $email,
-                'password' => ($pass)
+                'password' => md5($pass)
             ];
             $user = $this->db->select('users.id,users.user_type_id, users.name')->
                 where($data)->get('users')->row_array();
@@ -88,7 +88,7 @@ class Login extends CI_Controller{
                 'surname' => $surname,
                 'mobile' => $mobile,
                 'email' => $email,
-                'password' => ($pass)
+                'password' => md5($pass)
             ];
             $this->db->insert('users',$data);
             $insert_id = $this->db->insert_id();
