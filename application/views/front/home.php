@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-lg-3 col-md-12">
                                 <select class="hero__form-input  custom-select" name="city">
-                                    <option>Select City </option>
+                                    <option value="">Select City </option>
                                     <?php foreach ($cities as $item){ ?>
                                         <option value="<?php echo $item['id'] ?>"><?php echo $item['name'] ?></option>
                                     <?php } ?>
@@ -28,7 +28,7 @@
                             <div class="col-lg-3 col-md-12">
 
                                 <select class="hero__form-input  custom-select" name="ctg">
-                                    <option>Select Categories</option>
+                                    <option value="">Select Categories</option>
                                     <?php foreach ($ctgs as $item){ ?>
                                         <option value="<?php echo $item['id'] ?>"><?php echo $item['name']." - ".$item['type'] ?></option>
                                     <?php } ?>
