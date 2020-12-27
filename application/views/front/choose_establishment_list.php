@@ -55,12 +55,12 @@
                             <select class="filter-input ctgCh" id="option-select">
                                 <option value="0">Select Category</option>
                                 <optgroup label="personal">
-                                    <?php foreach ($ctgs as $item){ if ($item['type'] == 'personal'){ ?>
+                                    <?php foreach ($ctgs as $item){ if ($item['type'] == 'Personal'){ ?>
                                         <option <?php if (isset($selectedCtg)){if($selectedCtg == $item['id']){ echo 'selected'; }} ?> value="<?php echo $item['id']?>"><?php echo $item['name']?></option>
                                     <?php }} ?>
                                 </optgroup>
                                 <optgroup label="corporate">
-                                    <?php foreach ($ctgs as $item){ if ($item['type'] == 'corporate'){ ?>
+                                    <?php foreach ($ctgs as $item){ if ($item['type'] == 'Corporate'){ ?>
                                         <option <?php if (isset($selectedCtg)){if($selectedCtg == $item['id']){ echo 'selected'; }} ?> value="<?php echo $item['id']?>"><?php echo $item['name']?></option>
                                     <?php }} ?>
                                 </optgroup>

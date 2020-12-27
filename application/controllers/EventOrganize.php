@@ -107,7 +107,7 @@ class EventOrganize extends CI_Controller{
         if ($this->input->get('ctg',true)){
             $data['selectedCtg'] = $this->input->get('ctg',true);
         }
-        $data['page_info'] = ['name' => 'choose_establishment_list'];
+            $data['page_info'] = ['name' => 'choose_establishment_list'];
         $this->load->view('front/includes/index',$data);
     }
 
