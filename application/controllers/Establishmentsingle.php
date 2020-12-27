@@ -24,7 +24,11 @@ class Establishmentsingle extends CI_Controller{
         $data["estab_id"] = $id;
 
         $data['page_info'] = ['name' => 'establishment_single'];
-        $this->load->view('front/includes/index',$data);
+
+        if (!empty($data["user"])){
+            $this->load->view('front/includes/index',$data);
+        }
+
     }
 
     public function register($id)
@@ -48,7 +52,10 @@ class Establishmentsingle extends CI_Controller{
         $data["estab_id"] = $id;
 
         $data['page_info'] = ['name' => 'establishment_single_event_booking'];
-        $this->load->view('front/includes/index',$data);
+
+        if (!empty( $data["user"])){
+            $this->load->view('front/includes/index',$data);
+        }
     }
 
     public function register_action($id)

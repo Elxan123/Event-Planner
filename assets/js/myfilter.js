@@ -74,7 +74,7 @@ function getCafes(url) {
                 div.classList.add('trending-place-item');
                 div.innerHTML = `<div class="col-md-6 no-pad-lr">
                                         <div class="trending-img">
-                                            <img src="${baseUrl}uploads/providers/${provider.img}" alt="#">
+                                            <img style="height: 250px; object-fit: cover" src="${baseUrl}uploads/providers/${provider.img}" alt="#">
                                         </div>
                                     </div>
                                     <div class="col-md-6 no-pad-lr">

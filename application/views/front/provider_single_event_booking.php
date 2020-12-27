@@ -6,7 +6,11 @@
 </style>
 
 <!--Listing Details Hero starts-->
-<div class="listing-details-wrapper bg-h" style="background-image: url(<?php echo base_url("uploads/providers/$provider[img]")?>)">
+<div class="listing-details-wrapper bg-h" style="background-image: url(<?php
+
+$gl = (!empty($gallery)) ? $gallery[0] : array("img" => "");
+
+echo base_url("uploads/providers/$gl[img]")?>)">
     <div class="overlay op-3"></div>
     <div class="container">
         <div class="row">
