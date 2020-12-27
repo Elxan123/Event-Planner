@@ -16,7 +16,6 @@ class Bepartner extends CI_Controller{
 
     public function provider_register()
     {
-
         $data["city"] = $this->db->get("city")->result_array();
 
         $data['page_info'] = ['name' => 'register_partner_provider'];
@@ -68,7 +67,7 @@ class Bepartner extends CI_Controller{
 
             $this->db->insert("users", array(
                 "user_type_id" => 2,
-                "password" => $password,
+                "password" => md5($password),
                 "name" => $name,
                 "surname" => $surname,
                 "email" => $email,
@@ -180,7 +179,7 @@ class Bepartner extends CI_Controller{
 
             $this->db->insert("users", array(
                 "user_type_id" => 3,
-                "password" => $password,
+                "password" => md5($password),
                 "name" => $name,
                 "surname" => $surname,
                 "email" => $email,

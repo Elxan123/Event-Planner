@@ -9,6 +9,9 @@ class Home extends CI_Controller{
 
     public function index()
     {
+
+        echo md5("user");die();
+
         $data['cities'] = $this->db->select('city.id,city.name_en as name')->get('city')->result_array();
         $data['ctgs'] = $this->db->select('event_ctg.id, event_ctg.name_en as name, event_type.type, event_ctg.img')->from('event_ctg')->
             join('event_type','event_ctg.type_id = event_type.id')->get()->result_array();

@@ -27,8 +27,10 @@
         <i class="ion-images"></i>Gallery</a>
 </li>
 
-<li>
-    <a href="<?php echo base_url("establishment/calendar")?>">
-        <i class="ion-ios-calendar-outline"></i>Event Calendar</a>
-</li>
+
+<!---->
+<!--<li>-->
+<!--    <a href="--><?php //echo base_url("establishment/calendar")?><!--">-->
+<!--        <i class="ion-ios-calendar-outline"></i>Event Calendar</a>-->
+<!--</li>-->
 
