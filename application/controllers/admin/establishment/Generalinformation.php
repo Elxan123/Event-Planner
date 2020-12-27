@@ -5,7 +5,7 @@ class Generalinformation extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-        if (!isset($_SESSION['user_id']) or !isset($_SESSION['user_type'])){
+        if (!isset($_SESSION['user_id']) or !isset($_SESSION['user_type']) or $_SESSION['user_type'] != 3){
             show_404();
         }
 

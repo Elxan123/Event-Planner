@@ -4,7 +4,8 @@
     <div class="footer-top-area section-padding" >
         <div class="container">
             <div class="row nav-folderized">
-                <div class="col-lg-3 col-md-12">
+
+                <div class="col-lg-4 col-md-12">
                     <div class="footer-logo">
                         <a href="index.html"> <img src="images/logo-black.png" alt="logo"></a>
                         <div class="company-desc">
@@ -14,29 +15,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-12">
+
+                <div class="col-lg-4 col-md-12">
                     <div class="footer-content nav">
-                        <h2 class="title">Helpful Links</h2>
+                        <h2 class="title">Links</h2>
                         <ul class="list">
-                            <li><a class="link-hov style2" href="#">Login</a></li>
-                            <li><a class="link-hov style2" href="#">My Account</a></li>
-                            <li><a class="link-hov style2" href="#">Add Listing</a></li>
-                            <li><a class="link-hov style2" href="#">Privacy policy</a></li>
+                            <li><a class="link-hov style2" href="#">Home</a></li>
+                            <li><a class="link-hov style2" href="#">Service Providers</a></li>
+                            <li><a class="link-hov style2" href="#">Establishment</a></li>
+                            <li><a class="link-hov style2" href="#">Events</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-12">
-                    <div class="footer-content nav">
-                        <h2 class="title">Category</h2>
-                        <ul class="list">
-                            <li><a class="link-hov style2" href="#">Shop</a></li>
-                            <li><a class="link-hov style2" href="#">Travel</a></li>
-                            <li><a class="link-hov style2" href="#">Sport</a></li>
-                            <li><a class="link-hov style2" href="#">Restaurant</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-12">
+
+                <div class="col-lg-4 col-md-12">
                     <div class="footer-content nav">
                         <h2 class="title">Contact us</h2>
                         <ul class="list footer-list">
@@ -45,7 +37,7 @@
                                     <div class="icon">
                                         <i class="ion-ios-location"></i>
                                     </div>
-                                    <div class="text">13th North Ave, Florida, USA</div>
+                                    <div class="text">28 may</div>
                                 </div>
                             </li>
                             <li>
@@ -61,7 +53,7 @@
                                     <div class="icon">
                                         <i class="ion-ios-telephone"></i>
                                     </div>
-                                    <div class="text">+44 078 767 595</div>
+                                    <div class="text">+333333333333</div>
                                 </div>
                             </li>
                         </ul>
@@ -74,6 +66,7 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

@@ -30,9 +30,9 @@
                                 <div class="share-btn">
                                     <a href="#" class="btn v3 white"><i class="ion-android-share-alt"></i> Share</a>
                                     <ul class="social-share">
-                                        <li class="bg-fb"><a href="#"><i class="ion-social-facebook"></i></a></li>
-                                        <li class="bg-tt"><a href="#"><i class="ion-social-twitter"></i></a></li>
-                                        <li class="bg-ig"><a href="#"><i class="ion-social-instagram"></i></a></li>
+                                        <li class="bg-fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo base_url("provider-single/$provider_id")?>" target="_blank""><i class="ion-social-facebook"></i></a></li>
+                                        <li class="bg-tt"><a href="https://twitter.com/intent/tweet?url=<?php echo base_url("provider-single/$provider_id")?>" target="_blank"><i class="ion-social-twitter"></i></a></li>
+                                        <li class="bg-ig"><a href="https://www.instagram.com/?url=<?php echo base_url("provider-single/$provider_id")?>" target="_blank"><i class="ion-social-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>

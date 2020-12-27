@@ -22,17 +22,31 @@
                         <div class="col-lg-6 col-md-5 col-sm-12">
                             <div class="list-details-btn text-right sm-left">
                                 <div class="save-btn">
-                                    <a href="<?php echo base_url("establishment-single-register/$estab_id")?>" class="btn v3 white"><i class="ion-ios-briefcase"></i>
-                                        Event Organize
-                                    </a>
+
+                                    <?php $this->session->set_userdata("estabch_event", 10)?>
+
+                                    <?php if (!empty($this->session->userdata("estabch_event")) && $this->session->userdata("user_type") == 2) { ?>
+
+                                        <a href="<?php echo base_url("choose-establishment-for-provider/$estab_id")?>" class="btn v3 white"><i class="ion-ios-briefcase"></i>
+                                            Choose Establishment
+                                        </a>
+
+                                    <?php }elseif ($this->session->userdata("user_type") == 4 || empty($this->session->userdata("user_type"))){ ?>
+
+                                        <a href="<?php echo base_url("establishment-single-register/$estab_id")?>" class="btn v3 white"><i class="ion-ios-briefcase"></i>
+                                            Event Organize
+                                        </a>
+
+                                    <?php }?>
+
                                 </div>
 
                                 <div class="share-btn">
                                     <a href="#" class="btn v3 white"><i class="ion-android-share-alt"></i> Share</a>
                                     <ul class="social-share">
-                                        <li class="bg-fb"><a href="#"><i class="ion-social-facebook"></i></a></li>
-                                        <li class="bg-tt"><a href="#"><i class="ion-social-twitter"></i></a></li>
-                                        <li class="bg-ig"><a href="#"><i class="ion-social-instagram"></i></a></li>
+                                        <li class="bg-fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo base_url("establishment-single/$estab_id")?>" target="_blank""><i class="ion-social-facebook"></i></a></li>
+                                        <li class="bg-tt"><a href="https://twitter.com/intent/tweet?url=<?php echo base_url("establishment-single/$estab_id")?>" target="_blank"><i class="ion-social-twitter"></i></a></li>
+                                        <li class="bg-ig"><a href="https://www.instagram.com/?url=<?php echo base_url("establishment-single/$estab_id")?>" target="_blank"><i class="ion-social-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>

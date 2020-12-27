@@ -34,7 +34,7 @@ class ProviderSingle extends CI_Controller{
 
     public function register($id)
     {
-        if (empty($this->session->userdata("user_type")) || $this->session->userdata("user_type") !== 4){
+        if (empty($this->session->userdata("user_type")) || $this->session->userdata("user_type") != 4){
             redirect(base_url("login"));
         }
 
@@ -62,7 +62,7 @@ class ProviderSingle extends CI_Controller{
 
     public function register_action($id)
     {
-        if (empty($this->session->userdata("user_type")) || $this->session->userdata("user_type") !== 4){
+        if (empty($this->session->userdata("user_type")) || $this->session->userdata("user_type") != 4){
             redirect(base_url("login"));
         }
 
@@ -85,7 +85,8 @@ class ProviderSingle extends CI_Controller{
                 "description" => $description,
                 "event_start" => date('Y-m-d', strtotime($event_start)),
                 "event_end" => date('Y-m-d', strtotime($event_end)),
-                "status" => 0
+                "provider_status" => 0,
+                "estab_status" => 0
             ));
             $insert_id = $this->db->insert_id();
 

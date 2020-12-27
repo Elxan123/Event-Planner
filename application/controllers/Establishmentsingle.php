@@ -29,7 +29,9 @@ class Establishmentsingle extends CI_Controller{
 
     public function register($id)
     {
-        if (empty($this->session->userdata("user_type")) || $this->session->userdata("user_type") !== 4){
+
+
+        if ($this->session->userdata("user_type") != 4){
             redirect(base_url("login"));
         }
 
@@ -51,7 +53,7 @@ class Establishmentsingle extends CI_Controller{
 
     public function register_action($id)
     {
-        if (empty($this->session->userdata("user_type")) || $this->session->userdata("user_type") !== 4){
+        if (empty($this->session->userdata("user_type")) || $this->session->userdata("user_type") != 4){
             redirect(base_url("login"));
         }
 
@@ -71,7 +73,8 @@ class Establishmentsingle extends CI_Controller{
                 "description" => $description,
                 "event_start" => date('Y-m-d', strtotime($event_start)),
                 "event_end" => date('Y-m-d', strtotime($event_end)),
-                "status" => 0
+                "provider_status" => 0,
+                "estab_status" => 0
             ));
 
             redirect(base_url("register-success"));
@@ -89,5 +92,14 @@ class Establishmentsingle extends CI_Controller{
         $this->load->view('front/includes/index',$data);
     }
 
-
+    public function choose_for_provider($estab_id)
+    {
+        $this->db->where("id", $this->session->userdata("estabch_event"))->update("events", array(
+            "estab_id" => $estab_id
+        ));
+        $this->session->set_flashdata("suc", "Successfully choosed");
+        redirect(base_url("provider-events"));
+    }
+    
+    
 }
