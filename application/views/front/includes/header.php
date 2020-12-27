@@ -33,14 +33,16 @@
                                         </li>
 
                                         <?php if (isset($_SESSION['user_id'])){ ?>
-                                            <li style="font-size: 14px">
-
-                                                <a class="btn v3" href="<?php echo base_url("admin/dashboard")?>">Dashboard</a>
-                                                <a href="<?php echo base_url("logout")?>">
-                                                    <span><i class="icofont-login"></i></span>
-                                                    Logout
+                                            <li class="has-children" style="font-size: 14px">
+                                                <a href="#">
+                                                    Hi <?php echo $_SESSION["user_name"]?>
                                                 </a>
+                                                <ul class="dropdown">
+                                                    <li><a href="<?php echo base_url("admin/dashboard")?>">Dashboard</a></li>
+                                                    <li><a href="<?php echo base_url("logout")?>">Logout</a></li>
+                                                </ul>
                                             </li>
+
                                         <?php } ?>
                                     </ul>
                                 </div>
