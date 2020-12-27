@@ -1,5 +1,9 @@
 <!--Listing Details Hero starts-->
-<div class="listing-details-wrapper bg-h" style="background-image: url(<?php echo base_url("uploads/providers/$provider[img]")?>)">
+<div class="listing-details-wrapper bg-h" style="background-image: url(<?php
+
+$gl = (!empty($gallery)) ? $gallery[0] : array("img" => "");
+
+echo base_url("uploads/providers/$gl[img]")?>)">
     <div class="overlay op-3"></div>
     <div class="container">
         <div class="row">
@@ -68,7 +72,7 @@
                         </div>
 
 
-                        <div id="price" class="list-details-section mar-top-80">
+                        <div id="price" class="list-details-section " style="padding-top: 0!important;margin-top: 50px">
                             <h4>Services</h4>
                             <div class="room-type-wrapper">
 

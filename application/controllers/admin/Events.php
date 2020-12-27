@@ -28,6 +28,8 @@ class Events extends CI_Controller{
             show_404();
         }
         $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["provider_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("providers")->row_array();
+
         $data['events'] = $this->db->select('events.id,events.provider_status,events.provider_id,events.title,events.description,events.estab_status,events.estab_id')
             ->where('events.provider_id',$_SESSION['user_id'])->get('events')->result_array();
         $data['page_info'] = ['name' => 'events/provider'];
@@ -42,6 +44,8 @@ class Events extends CI_Controller{
         $data['events'] = $this->db->select('events.id,events.provider_status,events.provider_id,events.title,events.description,events.estab_status,events.estab_id')
             ->where('events.estab_id',$_SESSION['user_id'])->get('events')->result_array();
         $data["profile"] = $this->db->where("id", $this->session->userdata("user_id"))->get("users")->row_array();
+        $data["estab_profile"] = $this->db->where("user_id", $this->session->userdata("user_id"))->get("estab")->row_array();
+
         $data['page_info'] = ['name' => 'events/estab'];
         $this->load->view('admin/includes/index',$data);
     }

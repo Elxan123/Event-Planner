@@ -17,6 +17,7 @@ class ProviderSingle extends CI_Controller{
         $data["services"] = $this->db->select("services.*, service_provider.price")
             ->from("services")
             ->join("service_provider", "service_provider.service_id = services.id")
+            ->where("service_provider.provider_id", $id)
             ->get()->result_array();
 
         $data["event_categories"] = $this->db->select("event_ctg.*, event_type.type")
@@ -29,7 +30,10 @@ class ProviderSingle extends CI_Controller{
 
 
         $data['page_info'] = ['name' => 'provider_single'];
-        $this->load->view('front/includes/index',$data);
+
+        if (!empty($data["user"])){
+            $this->load->view('front/includes/index',$data);
+        }
     }
 
     public function register($id)
@@ -45,6 +49,7 @@ class ProviderSingle extends CI_Controller{
         $data["services"] = $this->db->select("services.*, service_provider.price")
             ->from("services")
             ->join("service_provider", "service_provider.service_id = services.id")
+            ->where("service_provider.provider_id", $id)
             ->get()->result_array();
 
         $data["event_categories"] = $this->db->select("event_ctg.*, event_type.type")
@@ -57,7 +62,10 @@ class ProviderSingle extends CI_Controller{
 
 
         $data['page_info'] = ['name' => 'provider_single_event_booking'];
-        $this->load->view('front/includes/index',$data);
+
+        if (!empty($data["user"])){
+            $this->load->view('front/includes/index',$data);
+        }
     }
 
     public function register_action($id)

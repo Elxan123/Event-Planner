@@ -6,9 +6,10 @@
             <div class="row nav-folderized">
 
                 <div class="col-lg-4 col-md-12">
-                    <div class="footer-logo">
-                        <a href="index.html"> <img src="images/logo-black.png" alt="logo"></a>
-                        <div class="company-desc">
+                    <div class="footer-logo" style="padding-top: 10px">
+                        <a  href="<?php echo base_url("")?>"> <span style="font-size: 20px">Logo</span> </a>
+
+                        <div class="company-desc" style="margin-top: 20px">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio excepturi nam totam sequi, ipsam consequatur repudiandae libero illum.
                             </p>
